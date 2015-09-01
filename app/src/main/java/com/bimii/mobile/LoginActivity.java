@@ -1,17 +1,29 @@
 package com.bimii.mobile;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.bimii.mobile.api.ApiHelper;
+import com.bimii.mobile.api.models.User;
+import com.bimii.mobile.cache.CacheConstants;
+import com.bimii.mobile.cache.CacheHelper;
+import com.bimii.mobile.dialogs.ProgressDialog;
+import com.bimii.mobile.utils.Loh;
+import com.bimii.mobile.utils.SecureProvider;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements Callback<String>{
 
     @Bind(R.id.etUsername_AL)
     protected EditText mInputUsername;
@@ -27,6 +39,39 @@ public class LoginActivity extends Activity {
 
     @OnClick(R.id.tvContinue_AL)
     protected void clickContinue(View viewClicked){
-        Toast.makeText(this, "Continue", Toast.LENGTH_SHORT).show();
+        final String username = mInputUsername.getText().toString();
+        final String password = mInputUsername.getText().toString();
+        if (TextUtils.isEmpty(username)){
+            Toast.makeText(this, R.string.login_is_empty, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)){
+            Toast.makeText(this, R.string.password_is_empty, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ProgressDialog.getInstance(this).show();
+        ApiHelper.getInstance().getBimiiService().requestToken(new User(username, password, SecureProvider.getUniqueAndroidId(getApplicationContext())), this);
+    }
+
+    @Override
+    public void success(String token, Response response) {
+        Loh.d("Token: " + token);
+        ProgressDialog.getInstance(this).dismiss();
+        CacheHelper.saveValue(getApplicationContext(), CacheConstants.CACHE_TOKEN, token);
+        ApiHelper.getInstance().updateToken(token);
+        openSettingsScreen();
+    }
+
+    @Override
+    public void failure(RetrofitError error) {
+        ProgressDialog.getInstance(this).dismiss();
+        Loh.d("Error GET_TOKEN: " + error.getMessage());
+    }
+
+    private void openSettingsScreen(){
+        startActivity(new Intent(this, SettingsActivity.class));
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+        finish();
     }
 }

@@ -17,6 +17,7 @@ public final class ApiHelper {
 
     private final RestAdapter mRestAdapter = new RestAdapter .Builder()
             .setEndpoint(ApiConstants.API_BASE_URL)
+            .setLogLevel(RestAdapter.LogLevel.FULL)
             .build();
 
     private final BimiiApiService bas = mRestAdapter.create(BimiiApiService.class);

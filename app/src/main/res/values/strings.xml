@@ -5,4 +5,8 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="continue_label">Continue</string>
+
+    <string name="login_is_empty">Username is empty</string>
+    <string name="password_is_empty">Password is empty</string>
+    <string name="loading">Loading...</string>
 </resources>
