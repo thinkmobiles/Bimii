@@ -4,17 +4,16 @@
         android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme">
 
         <activity
-            android:name=".TestActivity"
+            android:name=".GameActivity"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
-            android:screenOrientation="nosensor"
+            android:screenOrientation="sensorLandscape"
             android:windowSoftInputMode="stateUnspecified|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.MONKEY"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
