@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Bimii</string>
+    <string name="settings">Settings</string>
+    <string name="enter_user_data_info">Please enter user/password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="continue_label">Continue</string>
 </resources>
