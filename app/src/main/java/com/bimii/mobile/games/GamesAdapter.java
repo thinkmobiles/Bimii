@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.bimii.mobile.R;
-import com.bimii.mobile.api.models.Game;
+import com.bimii.mobile.api.models.based.Game;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.bimii.mobile.api;
 
-import com.bimii.mobile.api.models.Game;
+import com.bimii.mobile.api.models.based.Game;
 import com.bimii.mobile.api.models.User;
 
 import java.util.List;

@@ -85,12 +85,13 @@ public class LoginActivity extends Activity implements Callback<String>{
     @Override
     public void failure(RetrofitError error) {
         pdProgressView.dismiss();
-        Loh.d("Error GET_TOKEN: " + error.getMessage());
+        Loh.e("Error GET_TOKEN: " + error.getMessage());
     }
 
     private void openSettingsScreen(){
         startActivity(new Intent(this, SettingsActivity.class));
-        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+        //TODO fix animation
+//        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
         finish();
     }
 }

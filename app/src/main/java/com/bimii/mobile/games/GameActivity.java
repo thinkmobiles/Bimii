@@ -5,17 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.GridView;
 
 import com.bimii.mobile.LoginActivity;
 import com.bimii.mobile.R;
 import com.bimii.mobile.api.ApiHelper;
-import com.bimii.mobile.api.models.Game;
+import com.bimii.mobile.api.models.based.Game;
 import com.bimii.mobile.dialogs.ProgressDialog;
+import com.bimii.mobile.games.base.BaseHelperFactory;
 import com.bimii.mobile.utils.FontHelper;
 import com.bimii.mobile.utils.Loh;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import butterknife.Bind;
@@ -25,11 +26,10 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class GameActivity extends Activity implements Callback<List<Game>> {
+public class GameActivity extends Activity {
 
     @Bind(R.id.gvGames_AG)
     protected GridView gridViewGames;
-    private ProgressDialog pdProgressView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,6 @@ public class GameActivity extends Activity implements Callback<List<Game>> {
         setContentView(R.layout.activity_games);
 
         ButterKnife.bind(this);
-        pdProgressView = new ProgressDialog(this);
 
         FontHelper.init(getApplicationContext());
 
@@ -65,26 +64,16 @@ public class GameActivity extends Activity implements Callback<List<Game>> {
     }
 
     private void loadGames() {
-        //TODO from data base
-        pdProgressView.show();
-        ApiHelper.getInstance().getBimiiService().gameLibrary("d7u1kRwMsc1RfknulN6nGz5ctj7UYff3UdSj6MJ3PtaehwGG2aabom24kuTfCq30JmpLyt7", this);
+        try {
+            initGridGame(BaseHelperFactory.getHelper().getGameDAO().getAllGames());
+        } catch (SQLException e) {
+            Loh.e("Error when reading games from base: " + e.getMessage());
+        }
     }
 
     private void openLogin() {
         startActivity(new Intent(this, LoginActivity.class));
-        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-    }
-
-    @Override
-    public void success(List<Game> games, Response response) {
-        pdProgressView.dismiss();
-        Loh.i("Response Games count: " + games.size());
-        initGridGame(games);
-    }
-
-    @Override
-    public void failure(RetrofitError error) {
-        pdProgressView.dismiss();
-        Loh.i("Error GET_GAMES: " + error.getMessage());
+        //TODO fix animation
+//        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }

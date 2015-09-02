@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bimii.mobile.R;
-import com.bimii.mobile.api.models.Game;
+import com.bimii.mobile.api.models.based.Game;
 import com.bimii.mobile.utils.TextCropper;
 import com.squareup.picasso.Picasso;
 
