@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="columnGameWidth">120dp</dimen>
+    <dimen name="imageGameHeight">100dp</dimen>
+    <dimen name="vh_grid_spacing">35dp</dimen>
+    <dimen name="vh_grid_padding">50dp</dimen>
+</resources>

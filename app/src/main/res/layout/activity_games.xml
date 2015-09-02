@@ -5,8 +5,36 @@
     android:background="@color/app_background_color">
 
     <ImageView
+        android:id="@+id/ivBimiiLogo_AG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_bimii_big_logo"/>
+        android:src="@drawable/ic_bimii_big_logo" />
+
+    <ImageView
+        android:id="@+id/ivSettings_AG"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:src="@color/switch_thumb_disabled_material_dark" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ivBimiiLogo_AG">
+
+        <GridView
+            android:id="@+id/gvGames_AG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:columnWidth="@dimen/columnGameWidth"
+            android:gravity="center"
+            android:horizontalSpacing="@dimen/vh_grid_spacing"
+            android:padding="@dimen/vh_grid_padding"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="@dimen/vh_grid_spacing" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

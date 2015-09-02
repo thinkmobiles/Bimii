@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/username"
             android:text="test"
-            android:inputType="textEmailAddress"
             android:fontFamily="sans-serif"/>
 
         <EditText
@@ -43,7 +42,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:text="test"
-            android:inputType="textPassword"
             android:fontFamily="sans-serif"/>
 
         <TextView

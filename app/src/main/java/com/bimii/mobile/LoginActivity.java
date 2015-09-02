@@ -30,11 +30,30 @@ public class LoginActivity extends Activity implements Callback<String>{
     @Bind(R.id.etPassword_AL)
     protected EditText mInputPassword;
 
+    private ProgressDialog pdProgressView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        pdProgressView = new ProgressDialog(this);
+
+        if (loadToken())
+            openSettingsScreen();
+    }
+
+
+    private boolean loadToken() {
+        final String token = CacheHelper.getValue(getApplicationContext(), CacheConstants.CACHE_TOKEN);
+        Loh.i("Token in cache: " + token);
+
+        if (!TextUtils.isEmpty(token)) {
+            ApiHelper.getInstance().updateToken(token);
+            return true;
+        }
+
+        return false;
     }
 
     @OnClick(R.id.tvContinue_AL)
@@ -50,14 +69,14 @@ public class LoginActivity extends Activity implements Callback<String>{
             return;
         }
 
-        ProgressDialog.getInstance(this).show();
+        pdProgressView.show();
         ApiHelper.getInstance().getBimiiService().requestToken(new User(username, password, SecureProvider.getUniqueAndroidId(getApplicationContext())), this);
     }
 
     @Override
     public void success(String token, Response response) {
         Loh.d("Token: " + token);
-        ProgressDialog.getInstance(this).dismiss();
+        pdProgressView.dismiss();
         CacheHelper.saveValue(getApplicationContext(), CacheConstants.CACHE_TOKEN, token);
         ApiHelper.getInstance().updateToken(token);
         openSettingsScreen();
@@ -65,7 +84,7 @@ public class LoginActivity extends Activity implements Callback<String>{
 
     @Override
     public void failure(RetrofitError error) {
-        ProgressDialog.getInstance(this).dismiss();
+        pdProgressView.dismiss();
         Loh.d("Error GET_TOKEN: " + error.getMessage());
     }
 

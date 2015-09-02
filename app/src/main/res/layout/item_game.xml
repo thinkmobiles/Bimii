@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/columnGameWidth"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ivGameIcon_IG"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/imageGameHeight"
+        android:background="@drawable/bg_black_edit_rect"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/tvGameTitle_IG"
+        style="@style/SmallTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:text="GoodFood" />
+
+</LinearLayout>
