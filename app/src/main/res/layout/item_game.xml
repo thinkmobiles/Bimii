@@ -17,8 +17,6 @@
     <com.bimii.mobile.custom.StrokeTextView
         android:id="@+id/tvGameTitle_IG"
         style="@style/SmallTextStyle"
-        app:textStrokeWidth="5sp"
-        app:textStrokeColor="@color/app_text_shadow_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"

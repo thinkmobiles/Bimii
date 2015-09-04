@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="SmallTextStyle">
+    <style name="OutlineTextStyle">
+        <item name="textStrokeWidth">5sp</item>
+        <item name="textStrokeColor">@color/app_text_shadow_color</item>
+    </style>
+
+    <style name="SmallTextStyle" parent="OutlineTextStyle">
         <item name="android:textColor">@color/app_text_color</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">6dp</item>
         <item name="android:textSize">15sp</item>
     </style>
 
-    <style name="BigTextStyle">
+    <style name="BigTextStyle" parent="OutlineTextStyle">
         <item name="android:textColor">@color/app_text_color</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">6dp</item>

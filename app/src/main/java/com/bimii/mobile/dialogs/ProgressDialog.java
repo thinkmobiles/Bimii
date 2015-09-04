@@ -19,5 +19,6 @@ public final class ProgressDialog extends Dialog{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.progress_dialog);
+        setCancelable(false);
     }
 }

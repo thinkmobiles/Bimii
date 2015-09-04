@@ -4,16 +4,20 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.bimii.mobile.api.ApiHelper;
 import com.bimii.mobile.api.models.based.Game;
 import com.bimii.mobile.cache.CacheConstants;
 import com.bimii.mobile.cache.CacheHelper;
+import com.bimii.mobile.dialogs.DownloadDialog;
 import com.bimii.mobile.dialogs.ProgressDialog;
 import com.bimii.mobile.games.base.BaseHelperFactory;
 import com.bimii.mobile.games.base.DatabaseHelper;
 import com.bimii.mobile.settings.GamesSettingsAdapter;
+import com.bimii.mobile.settings.downloader.AsyncApkLoader;
 import com.bimii.mobile.utils.FontHelper;
 import com.bimii.mobile.utils.Loh;
 
@@ -22,9 +26,11 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import retrofit.mime.TypedFile;
 
 public class SettingsActivity extends Activity implements Callback<List<Game>> {
 
@@ -32,6 +38,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
 
     @Bind(R.id.lvGames_AS)
     protected ListView listGames;
+    private GamesSettingsAdapter mGamesSettingsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,11 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
         ButterKnife.bind(this);
         pdProgressView = new ProgressDialog(this);
         loadGames();
+    }
+
+    @OnItemClick(R.id.lvGames_AS)
+    protected void clickOnItemGames(AdapterView<?> parent, View view, int position, long id){
+        new DownloadDialog(this, mGamesSettingsAdapter.getItem(position)).show();
     }
 
 
@@ -52,12 +64,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
     public void success(List<Game> games, Response response) {
         pdProgressView.dismiss();
         Loh.i("Success GET_GAMES: " + games.size() + " games in response");
-        try {
-            BaseHelperFactory.getHelper().updateGames(games);
-            listGames.setAdapter(new GamesSettingsAdapter(this, BaseHelperFactory.getHelper().getGameDAO().getAllGames()));
-        } catch (SQLException e) {
-            Loh.e("Error when write games in base: " + e.getMessage());
-        }
+        listGames.setAdapter(mGamesSettingsAdapter = new GamesSettingsAdapter(this, games));
     }
 
     @Override

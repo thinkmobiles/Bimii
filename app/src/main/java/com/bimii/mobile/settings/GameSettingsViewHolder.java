@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.bimii.mobile.R;
 import com.bimii.mobile.api.models.based.Game;
+import com.bimii.mobile.dialogs.DownloadDialog;
 import com.bimii.mobile.utils.TextCropper;
 import com.squareup.picasso.Picasso;
 
@@ -47,21 +48,6 @@ public final class GameSettingsViewHolder {
                 .load(_game.thumbnail_img_url)
                 .placeholder(R.drawable.bg_black_edit_rect)
                 .into(iconGame);
-    }
-
-    @OnClick(R.id.tvAction_SITG)
-    protected void clickAction(TextView viewClicked){
-        switch ((ActionGame) viewClicked.getTag()){
-            case DOWNLOAD:
-                Toast.makeText(viewClicked.getContext(), "Click action - Download", Toast.LENGTH_SHORT).show();
-                break;
-            case DELETE:
-                Toast.makeText(viewClicked.getContext(), "Click action - Delete", Toast.LENGTH_SHORT).show();
-                break;
-            case UPDATE:
-                Toast.makeText(viewClicked.getContext(), "Click action - Update", Toast.LENGTH_SHORT).show();
-                break;
-        }
     }
 
 }
