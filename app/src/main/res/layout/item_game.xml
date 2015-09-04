@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/columnGameWidth"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <ImageView
+    <com.bimii.mobile.custom.CircleImageView
         android:id="@+id/ivGameIcon_IG"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/imageGameHeight"
-        android:background="@drawable/bg_black_edit_rect"
-        android:scaleType="centerCrop" />
+        android:layout_height="@dimen/columnGameWidth"
+        android:background="@drawable/bg_item_menu"
+        android:padding="12dp"
+        app:border_width="3dp"
+        app:border_color="@android:color/white"/>
 
-    <TextView
+    <com.bimii.mobile.custom.StrokeTextView
         android:id="@+id/tvGameTitle_IG"
         style="@style/SmallTextStyle"
+        app:textStrokeWidth="5sp"
+        app:textStrokeColor="@color/app_text_shadow_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:padding="10dp"
-        android:singleLine="true"
-        android:text="GoodFood" />
+        android:singleLine="true"/>
 
 </LinearLayout>

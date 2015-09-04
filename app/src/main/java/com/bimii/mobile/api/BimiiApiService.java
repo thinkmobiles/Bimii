@@ -26,15 +26,7 @@ public interface BimiiApiService {
     @Headers("Content-Type: application/vnd.android.package-archive")
     @FormUrlEncoded
     @Multipart
-    @POST("/library/games/request")
+    @POST("/library/games/download'")
     void downloadGame(@Field("token") String tokem, @Field("game_id") int game_id, Callback<TypedFile> callback);
-
-    @FormUrlEncoded
-    @POST("/library/games/install")
-    void installGame(@Field("token") String tokem, @Field("game_id") int game_id, Callback<Boolean> callback);
-
-    @FormUrlEncoded
-    @POST("/library/games/uninstall")
-    void unisstallGame(@Field("token") String tokem, @Field("game_id") int game_id, Callback<Boolean> callback);
 
 }

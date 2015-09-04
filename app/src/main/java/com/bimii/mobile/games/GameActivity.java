@@ -9,9 +9,7 @@ import android.widget.GridView;
 
 import com.bimii.mobile.LoginActivity;
 import com.bimii.mobile.R;
-import com.bimii.mobile.api.ApiHelper;
 import com.bimii.mobile.api.models.based.Game;
-import com.bimii.mobile.dialogs.ProgressDialog;
 import com.bimii.mobile.games.base.BaseHelperFactory;
 import com.bimii.mobile.utils.FontHelper;
 import com.bimii.mobile.utils.Loh;
@@ -22,9 +20,6 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class GameActivity extends Activity {
 
@@ -43,24 +38,39 @@ public class GameActivity extends Activity {
         loadGames();
     }
 
-    @OnClick(R.id.ivSettings_AG)
+    @OnClick(R.id.ibSettings_AG)
     protected void clickSettings(View viewClicked) {
         openLogin();
     }
 
     private void initGridGame(final List<Game> _games) {
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
+        _games.add(_games.get(0));
         int columnCount = _games.size() < 3 ? _games.size() : 3;
-        gridViewGames.setLayoutParams(getCalculatedLayoutParams(columnCount));
         gridViewGames.setNumColumns(columnCount);
         gridViewGames.setAdapter(new GamesAdapter(this, _games));
-    }
-
-    private ViewGroup.LayoutParams getCalculatedLayoutParams(final int _columnCount) {
-        ViewGroup.LayoutParams lp = gridViewGames.getLayoutParams();
-        lp.width = (int) (_columnCount * getResources().getDimension(R.dimen.columnGameWidth)    // Columns width
-                        + (_columnCount - 1) * gridViewGames.getVerticalSpacing()               // Horizontal Spacing width
-                        + gridViewGames.getPaddingLeft() + gridViewGames.getPaddingRight());   // Left/Right padding's
-        return lp;
     }
 
     private void loadGames() {

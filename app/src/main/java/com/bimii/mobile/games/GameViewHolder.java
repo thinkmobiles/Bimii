@@ -1,6 +1,8 @@
 package com.bimii.mobile.games;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,7 +32,8 @@ public final class GameViewHolder{
         Picasso
                 .with(context)
                 .load(_game.thumbnail_img_url)
-                .placeholder(R.drawable.bg_black_edit_rect)
+                .placeholder(new ColorDrawable(Color.WHITE))
+                .noFade()
                 .into(iconGame);
     }
 

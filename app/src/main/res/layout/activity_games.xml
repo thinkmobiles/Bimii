@@ -2,36 +2,50 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background_color">
+    android:background="@drawable/bg_gradient">
 
-    <ImageView
-        android:id="@+id/ivBimiiLogo_AG"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rlHeaderGames_AG"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_bimii_big_logo" />
+        android:paddingTop="@dimen/tb_grid_padding"
+        android:paddingLeft="@dimen/tb_grid_padding"
+        android:paddingRight="@dimen/tb_grid_padding">
 
-    <ImageView
-        android:id="@+id/ivSettings_AG"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:src="@color/switch_thumb_disabled_material_dark" />
+        <ImageView
+            android:id="@+id/ivBimiiLogo_AG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icn_bimii_logo" />
+
+        <ImageButton
+            android:id="@+id/ibSettings_AG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_button_bg"
+            android:src="@drawable/selector_button_settings" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ivBimiiLogo_AG">
+        android:layout_below="@id/rlHeaderGames_AG">
 
         <GridView
             android:id="@+id/gvGames_AG"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:columnWidth="@dimen/columnGameWidth"
             android:gravity="center"
+            android:clipToPadding="false"
             android:horizontalSpacing="@dimen/vh_grid_spacing"
-            android:padding="@dimen/vh_grid_padding"
+            android:paddingBottom="@dimen/tb_grid_padding"
+            android:paddingLeft="@dimen/lr_grid_padding"
+            android:paddingRight="@dimen/lr_grid_padding"
+            android:paddingTop="@dimen/tb_grid_padding"
+            android:scrollbars="none"
             android:stretchMode="columnWidth"
             android:verticalSpacing="@dimen/vh_grid_spacing" />
 
