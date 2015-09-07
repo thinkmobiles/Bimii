@@ -20,6 +20,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnItemClick;
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -47,6 +48,24 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
     protected void clickOnItemGames(AdapterView<?> parent, View view, int position, long id){
         gameDownload = mGamesSettingsAdapter.getItem(position);
         new DownloadDialog(this, gameDownload).show();
+    }
+
+    @OnClick(R.id.ivCancelSettings_AS)
+    protected void closeSettings(){
+        finish();
+    }
+
+
+    @OnClick({R.id.btnWiFi_AS, R.id.btnBluetooth_AS, R.id.btnLauncherSwitch_AS})
+    protected void clickButtons(View viewClicked){
+        switch (viewClicked.getId()){
+            case R.id.btnWiFi_AS:
+                break;
+            case R.id.btnBluetooth_AS:
+                break;
+            case R.id.btnLauncherSwitch_AS:
+                break;
+        }
     }
 
     private void loadGames() {

@@ -22,15 +22,11 @@ public class DownloadDialog extends Dialog implements ProgressListener{
 
     public static final int REQUEST_INSTALL_CODE = 27819;
 
-    @Bind(R.id.tvStateLoading_DD)
-    protected TextView progressInfo;
-
     private Game mGame;
 
     public DownloadDialog(Context context, Game game) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         setCancelable(false);
-
         this.mGame = game;
     }
 
@@ -38,7 +34,6 @@ public class DownloadDialog extends Dialog implements ProgressListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.downloading_dialog);
-        ButterKnife.bind(this);
         new AsyncApkLoader(getContext(), this).execute(mGame);
     }
 
@@ -57,9 +52,9 @@ public class DownloadDialog extends Dialog implements ProgressListener{
     }
 
     private void installApplication(final File file){
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-        ((SettingsActivity) getContext()).startActivityForResult(intent, REQUEST_INSTALL_CODE);
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//        intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+//        ((SettingsActivity) getContext()).startActivityForResult(intent, REQUEST_INSTALL_CODE);
 
     }
 }

@@ -7,5 +7,15 @@
     <color name="app_sky_color">#B1DDE4</color>
     <color name="app_night_sky_color">#2C4857</color>
 
+    <color name="app_night_sky_item_table_color">#3F5A68</color>
+    <color name="app_button_text_color">#006F9D</color>
+    <color name="app_button_text_color_pressed">#3B87A7</color>
+
     <color name="app_hint_color">#B4B4B4</color>
+
+    <!-- TABLE COLORS -->
+
+    <color name="table_divider_color">#A3D7E2</color>
+    <color name="table_first_color">#D1EAF1</color>
+    <color name="table_second_color">#B1DDE4</color>
 </resources>

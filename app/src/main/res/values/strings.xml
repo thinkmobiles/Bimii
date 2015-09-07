@@ -13,4 +13,8 @@
     <string name="version">Version</string>
     <string name="available">Available</string>
     <string name="action">Action</string>
+    <string name="installingen">Installation</string>
+    <string name="wi_fi">Wi - fi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="launcher_switch">Launcher switch</string>
 </resources>

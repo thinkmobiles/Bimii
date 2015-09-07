@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.bimii.mobile.R;
 import com.bimii.mobile.api.models.based.Game;
+import com.bimii.mobile.custom.CropSquareTransformation;
 import com.bimii.mobile.utils.TextCropper;
 import com.squareup.picasso.Picasso;
 
@@ -43,7 +44,8 @@ public final class GameSettingsViewHolder {
         Picasso
                 .with(context)
                 .load(_game.thumbnail_img_url)
-                .placeholder(R.drawable.bg_white_edit_round_rect)
+                .placeholder(R.drawable.bg_night_circular)
+                .transform(new CropSquareTransformation())
                 .into(iconGame);
     }
 

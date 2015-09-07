@@ -5,41 +5,87 @@
     android:background="@drawable/bg_gradient"
     android:orientation="horizontal">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:padding="25dp">
+        <TextView
+            style="@style/SmallTextStyle"
+            android:textColor="@color/app_button_text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/installingen"
+            android:background="@drawable/bg_instellingen" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/bg_white_edit_round_rect"
-            android:padding="2dp">
+            android:gravity="center">
 
-            <include
-                layout="@layout/settings_header_table_games" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnWiFi_AS"
+                android:text="@string/wi_fi"
+                android:layout_margin="10dp"
+                android:textColor="@drawable/selector_bimii_btn_text"
+                android:background="@drawable/selector_bimii_btn_bg"/>
 
-            <ListView
-                android:id="@+id/lvGames_AS"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="@null"
-                android:dividerHeight="0dp"
-                android:listSelector="@android:color/transparent"
-                android:scrollbars="vertical"
-                android:text="@string/settings" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnBluetooth_AS"
+                android:text="@string/bluetooth"
+                android:layout_margin="10dp"
+                android:textColor="@drawable/selector_bimii_btn_text"
+                android:background="@drawable/selector_bimii_btn_bg"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnLauncherSwitch_AS"
+                android:text="@string/launcher_switch"
+                android:layout_margin="10dp"
+                android:textColor="@drawable/selector_bimii_btn_text"
+                android:background="@drawable/selector_bimii_btn_bg"/>
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_table_shape"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <include layout="@layout/settings_header_table_games" />
+
+        <ListView
+            android:id="@+id/lvGames_AS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/table_divider_color"
+            android:dividerHeight="1dp"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="vertical"
+            android:text="@string/settings" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivCancelSettings_AS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:src="@drawable/selector_btn_x" />
 
 </LinearLayout>
