@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/bg_black_edit_rect"
+            android:background="@drawable/bg_white_edit_round_rect"
             android:padding="2dp">
 
             <include

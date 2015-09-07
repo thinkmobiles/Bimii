@@ -2,21 +2,25 @@ package com.bimii.mobile.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.pm.PackageInfo;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.bimii.mobile.R;
+import com.bimii.mobile.SettingsActivity;
 import com.bimii.mobile.api.models.based.Game;
 import com.bimii.mobile.settings.downloader.AsyncApkLoader;
 import com.bimii.mobile.settings.downloader.ProgressListener;
-import com.bimii.mobile.settings.downloader.StateDownloading;
-import com.bimii.mobile.utils.Loh;
+
+import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class DownloadDialog extends Dialog implements ProgressListener{
+
+    public static final int REQUEST_INSTALL_CODE = 27819;
 
     @Bind(R.id.tvStateLoading_DD)
     protected TextView progressInfo;
@@ -40,17 +44,22 @@ public class DownloadDialog extends Dialog implements ProgressListener{
 
     @Override
     public void transferred(int percent) {
-        Loh.e(String.valueOf(percent));
+//        Loh.e(String.valueOf(percent));
     }
 
     @Override
-    public void state(StateDownloading stateDownloading) {
-        progressInfo.setText(stateDownloading.name());
-    }
+    public void onResult(File file) {
 
-    @Override
-    public void onResult(PackageInfo pi) {
-        Loh.i(pi == null ? "O" : pi.packageName + " - COMPELETE INSTALLING");
+//        getContext().startActivity(getContext().getPackageManager().getLaunchIntentForPackage(pi.packageName));
+        if (file != null)
+            installApplication(file);
         dismiss();
+    }
+
+    private void installApplication(final File file){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+        ((SettingsActivity) getContext()).startActivityForResult(intent, REQUEST_INSTALL_CODE);
+
     }
 }

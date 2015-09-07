@@ -2,57 +2,69 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background_color">
+    android:background="@drawable/bg_gradient">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/bg_black_rect"
+        android:background="@drawable/bg_sky_rect"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10dp">
 
         <TextView
             style="@style/BigTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings" />
+            android:text="@string/settings"
+            android:textColor="@color/app_night_sky_color" />
 
         <TextView
             style="@style/SmallTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/enter_user_data_info" />
+            android:text="@string/enter_user_data_info"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="6dp"
+            android:textColor="@color/app_night_sky_color" />
 
         <EditText
             android:id="@+id/etUsername_AL"
             style="@style/EditTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
             android:hint="@string/username"
-            android:text="test"
-            android:fontFamily="sans-serif"/>
+            android:text="test" />
 
         <EditText
             android:id="@+id/etPassword_AL"
             style="@style/EditTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
             android:hint="@string/password"
-            android:text="test"
-            android:fontFamily="sans-serif"/>
+            android:text="test" />
 
-        <TextView
-            style="@style/SmallTextStyle"
+        <ImageView
             android:id="@+id/tvContinue_AL"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="@string/continue_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_black_half_corners"/>
-
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_white_half_corners"
+            android:padding="10dp"
+            android:src="@drawable/selector_button_continue" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivBackButton_AL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="15dp"
+        android:src="@drawable/selector_button_back" />
 </RelativeLayout>

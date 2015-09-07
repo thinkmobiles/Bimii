@@ -3,22 +3,16 @@ package com.bimii.mobile;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.bimii.mobile.api.ApiHelper;
 import com.bimii.mobile.api.models.based.Game;
-import com.bimii.mobile.cache.CacheConstants;
-import com.bimii.mobile.cache.CacheHelper;
 import com.bimii.mobile.dialogs.DownloadDialog;
 import com.bimii.mobile.dialogs.ProgressDialog;
 import com.bimii.mobile.games.base.BaseHelperFactory;
-import com.bimii.mobile.games.base.DatabaseHelper;
 import com.bimii.mobile.settings.GamesSettingsAdapter;
-import com.bimii.mobile.settings.downloader.AsyncApkLoader;
-import com.bimii.mobile.utils.FontHelper;
 import com.bimii.mobile.utils.Loh;
 
 import java.sql.SQLException;
@@ -30,7 +24,6 @@ import butterknife.OnItemClick;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import retrofit.mime.TypedFile;
 
 public class SettingsActivity extends Activity implements Callback<List<Game>> {
 
@@ -39,6 +32,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
     @Bind(R.id.lvGames_AS)
     protected ListView listGames;
     private GamesSettingsAdapter mGamesSettingsAdapter;
+    private Game gameDownload = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +45,9 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
 
     @OnItemClick(R.id.lvGames_AS)
     protected void clickOnItemGames(AdapterView<?> parent, View view, int position, long id){
-        new DownloadDialog(this, mGamesSettingsAdapter.getItem(position)).show();
+        gameDownload = mGamesSettingsAdapter.getItem(position);
+        new DownloadDialog(this, gameDownload).show();
     }
-
 
     private void loadGames() {
         pdProgressView.show();
@@ -71,5 +65,19 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
     public void failure(RetrofitError error) {
         pdProgressView.dismiss();
         Loh.i("Error GET_GAMES: " + error.getMessage());
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == DownloadDialog.REQUEST_INSTALL_CODE){
+            if (resultCode == RESULT_OK && gameDownload != null)
+                try {
+                    Loh.i("COMPLETE INSTALLING - GAME WRITED INTO BASE !!!");
+                    BaseHelperFactory.getHelper().updateGame(gameDownload);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
     }
 }

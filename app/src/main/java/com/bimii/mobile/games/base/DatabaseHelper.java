@@ -2,7 +2,6 @@ package com.bimii.mobile.games.base;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
 import com.bimii.mobile.api.models.based.Game;
 import com.bimii.mobile.api.models.based.Image;
@@ -16,7 +15,6 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper{

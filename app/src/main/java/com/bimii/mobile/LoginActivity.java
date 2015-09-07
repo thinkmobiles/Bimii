@@ -59,7 +59,7 @@ public class LoginActivity extends Activity implements Callback<String>{
     @OnClick(R.id.tvContinue_AL)
     protected void clickContinue(View viewClicked){
         final String username = mInputUsername.getText().toString();
-        final String password = mInputUsername.getText().toString();
+        final String password = mInputPassword.getText().toString();
         if (TextUtils.isEmpty(username)){
             Toast.makeText(this, R.string.login_is_empty, Toast.LENGTH_SHORT).show();
             return;
@@ -71,6 +71,11 @@ public class LoginActivity extends Activity implements Callback<String>{
 
         pdProgressView.show();
         ApiHelper.getInstance().getBimiiService().requestToken(new User(username, password, SecureProvider.getUniqueAndroidId(getApplicationContext())), this);
+    }
+
+    @OnClick(R.id.ivBackButton_AL)
+    protected void clickBackButton(){
+        finish();
     }
 
     @Override

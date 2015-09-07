@@ -4,17 +4,14 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bimii.mobile.R;
 import com.bimii.mobile.api.models.based.Game;
-import com.bimii.mobile.dialogs.DownloadDialog;
 import com.bimii.mobile.utils.TextCropper;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public final class GameSettingsViewHolder {
 
@@ -46,7 +43,7 @@ public final class GameSettingsViewHolder {
         Picasso
                 .with(context)
                 .load(_game.thumbnail_img_url)
-                .placeholder(R.drawable.bg_black_edit_rect)
+                .placeholder(R.drawable.bg_white_edit_round_rect)
                 .into(iconGame);
     }
 
