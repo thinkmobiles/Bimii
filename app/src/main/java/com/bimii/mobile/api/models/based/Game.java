@@ -35,7 +35,7 @@ public final class Game {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     public Thumbnail thumbnail;
 
-    public ActionGame actionGame = ActionGame.NONE;
+    public ActionGame actionGame = ActionGame.DELETE;
 
     public Game() {
     }

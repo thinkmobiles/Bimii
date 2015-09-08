@@ -46,7 +46,7 @@ public class AsyncApkLoader extends AsyncTask<Game, Integer, File> {
 
             connection.getOutputStream().write(urlParameters.getBytes());
 
-            final File resultFile =  saveApkIntoFile(connection.getInputStream(), connection.getContentLength(), SecureProvider.getGameDirectoryFile(mContext, game.getFilename()));
+            final File resultFile =  saveApkIntoFile(connection.getInputStream(), connection.getContentLength(), SecureProvider.getGameDirectoryFile(mContext, game.getFilename(), true));
 
             connection.disconnect();
 

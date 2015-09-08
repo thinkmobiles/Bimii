@@ -22,7 +22,7 @@ public final class SecureProvider {
         return null;
     }
 
-    public static File getGameDirectoryFile(final Context context, final String gameNameWithExtension) throws IOException {
+    public static File getGameDirectoryFile(final Context context, final String gameNameWithExtension, final boolean createEmpty) throws IOException {
         final File moundSD = getMountAppsDirectoryFile(context);
         if (moundSD == null) return null;
         final File apkFile = new File(moundSD, gameNameWithExtension);
@@ -30,7 +30,8 @@ public final class SecureProvider {
         if (apkFile.exists())
             apkFile.delete();
 
-        apkFile.createNewFile();
+        if (createEmpty)
+            apkFile.createNewFile();
 
         return apkFile;
     }

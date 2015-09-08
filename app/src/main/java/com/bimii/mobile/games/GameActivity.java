@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.bimii.mobile.LoginActivity;
@@ -19,11 +20,13 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 
 public class GameActivity extends Activity {
 
     @Bind(R.id.gvGames_AG)
     protected GridView gridViewGames;
+    private GamesAdapter gamesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,11 @@ public class GameActivity extends Activity {
         ButterKnife.bind(this);
 
         FontHelper.init(getApplicationContext());
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         loadGames();
     }
 
@@ -42,34 +49,15 @@ public class GameActivity extends Activity {
         openLogin();
     }
 
+    @OnItemClick(R.id.gvGames_AG)
+    protected void gameItemClick(AdapterView<?> parent, View view, int position, long id){
+        startActivity(getPackageManager().getLaunchIntentForPackage(gamesAdapter.getItem(position).packageName));
+    }
+
     private void initGridGame(final List<Game> _games) {
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
-//        _games.add(_games.get(0));
         int columnCount = _games.size() < 3 ? _games.size() : 3;
         gridViewGames.setNumColumns(columnCount);
-        gridViewGames.setAdapter(new GamesAdapter(this, _games));
+        gridViewGames.setAdapter(gamesAdapter = new GamesAdapter(this, _games));
     }
 
     private void loadGames() {

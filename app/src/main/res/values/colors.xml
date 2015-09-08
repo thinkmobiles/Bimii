@@ -11,6 +11,11 @@
     <color name="app_button_text_color">#006F9D</color>
     <color name="app_button_text_color_pressed">#3B87A7</color>
 
+    <color name="popup_bg_color">#B1DDE5</color>
+    <color name="download_bg_color">#99D4E2</color>
+    <color name="download_bg_progress_color">#D4EDFC</color>
+    <color name="download_text_color_progress">#71ADBB</color>
+
     <color name="app_hint_color">#B4B4B4</color>
 
     <!-- TABLE COLORS -->

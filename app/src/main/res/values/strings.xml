@@ -17,4 +17,9 @@
     <string name="wi_fi">Wi - fi</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="launcher_switch">Launcher switch</string>
+    <string name="downloading">Downloading...</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="error_info">Sorry, problem with your internet or server. Try later, please.</string>
+    <string name="error_token">Logged in again, please.</string>
 </resources>

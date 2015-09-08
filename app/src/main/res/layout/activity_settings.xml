@@ -68,6 +68,11 @@
         android:padding="3dp">
 
         <include layout="@layout/settings_header_table_games" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/table_divider_color"/>
 
         <ListView
             android:id="@+id/lvGames_AS"
