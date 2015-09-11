@@ -13,6 +13,7 @@ import com.bimii.mobile.api.models.based.Game;
 import com.bimii.mobile.cache.CacheConstants;
 import com.bimii.mobile.cache.CacheHelper;
 import com.bimii.mobile.dialogs.DownloadDialog;
+import com.bimii.mobile.dialogs.DownloadDialog.InstallGameEvent;
 import com.bimii.mobile.dialogs.ProgressDialog;
 import com.bimii.mobile.games.base.BaseHelperFactory;
 import com.bimii.mobile.settings.ActionGame;
@@ -32,7 +33,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class SettingsActivity extends Activity implements Callback<List<Game>> {
+public class SettingsActivity extends Activity implements Callback<List<Game>>, InstallGameEvent {
 
     private ProgressDialog pdProgressView;
 
@@ -40,6 +41,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
     protected ListView listGames;
     private GamesSettingsAdapter mGamesSettingsAdapter;
     private Game gameDownload = null;
+    private String lastInstalledPackageName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
         gameDownload = mGamesSettingsAdapter.getItem(position);
 
         if (gameDownload.actionGame.equals(ActionGame.DOWNLOAD) || gameDownload.actionGame.equals(ActionGame.UPDATE))
-            new DownloadDialog(this, gameDownload).show();
+            new DownloadDialog(this, gameDownload, this).show();
         else if (gameDownload.actionGame.equals(ActionGame.DELETE))
             DownloadDialog.uninstallApplication(this, gameDownload.packageName);
     }
@@ -99,8 +101,11 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
 
     private List<Game> getSynchronizedGames(List<Game> serverGames) {
         try {
-            for (Game game : serverGames)
-                game.actionGame = BaseHelperFactory.getHelper().getGameDAO().isInstalled(game);
+            for (Game game : serverGames) {
+                Object[] lotInBase = BaseHelperFactory.getHelper().getGameDAO().isInstalled(game);
+                game.actionGame = (ActionGame) lotInBase[0];
+                game.packageName = (String) lotInBase[1];
+            }
             serverGames.addAll(BaseHelperFactory.getHelper().getGameDAO().getGameOnlyLocalInstalled(serverGames));
         } catch (SQLException e) {
             e.printStackTrace();
@@ -121,10 +126,11 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == DownloadDialog.REQUEST_INSTALL_CODE && gameDownload != null) {
-            if ((resultCode == RESULT_OK || resultCode == RESULT_CANCELED)) {
+            if ((resultCode == RESULT_OK || resultCode == RESULT_CANCELED) && DownloadDialog.isContainsGameOnDevice(getApplicationContext(), lastInstalledPackageName)) {
                 try {
                     Loh.i("COMPLETE INSTALLING - GAME WRITED INTO BASE !!!");
                     gameDownload.actionGame = ActionGame.DELETE;
+                    gameDownload.packageName = lastInstalledPackageName;
                     BaseHelperFactory.getHelper().updateGame(gameDownload);
                     mGamesSettingsAdapter.notifyDataSetChanged();
                 } catch (SQLException e) {
@@ -152,5 +158,10 @@ public class SettingsActivity extends Activity implements Callback<List<Game>> {
                 }
         }
 
+    }
+
+    @Override
+    public void onStartedInstallPackage(String packageName) {
+        lastInstalledPackageName = packageName;
     }
 }

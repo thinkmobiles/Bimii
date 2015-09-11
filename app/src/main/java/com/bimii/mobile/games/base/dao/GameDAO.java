@@ -21,21 +21,21 @@ public class GameDAO extends BaseDaoImpl<Game, Integer>{
         return this.queryForAll();
     }
 
-    public ActionGame isInstalled(final Game game){
+    public Object[] isInstalled(final Game game){
         try {
             List<Game> results = queryBuilder().where().eq(COLUMN_ID, game.getId()).query();
             if (results == null || results.size() == 0)
-                return ActionGame.DOWNLOAD;
+                return new Object[]{ActionGame.DOWNLOAD, ""};
             else {
                 final Game gameInBase = results.get(0);
                 if (gameInBase.getVersion() == game.getVersion())
-                    return ActionGame.DELETE;
-                else return ActionGame.UPDATE;
+                    return new Object[]{ActionGame.DELETE, gameInBase.packageName};
+                else return new Object[]{ActionGame.UPDATE, gameInBase.packageName};
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return ActionGame.DOWNLOAD;
+        return new Object[]{ActionGame.DOWNLOAD, ""};
     }
 
     // TODO But, maybe this moment is not have, I not know
