@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <size android:width="@dimen/switch_thumb_width"
+          android:height="@dimen/switch_thumb_height"/>
+    <solid android:color="@color/app_night_sky_color"/>
+    <corners android:radius="@dimen/switch_thumb__corners_radius"/>
+</shape>

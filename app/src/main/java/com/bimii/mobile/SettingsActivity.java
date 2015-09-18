@@ -15,6 +15,7 @@ import com.bimii.mobile.cache.CacheHelper;
 import com.bimii.mobile.dialogs.DownloadDialog;
 import com.bimii.mobile.dialogs.DownloadDialog.InstallGameEvent;
 import com.bimii.mobile.dialogs.ProgressDialog;
+import com.bimii.mobile.dialogs.wifi.WifiDialog;
 import com.bimii.mobile.games.base.BaseHelperFactory;
 import com.bimii.mobile.settings.ActionGame;
 import com.bimii.mobile.settings.GamesSettingsAdapter;
@@ -72,6 +73,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
     protected void clickButtons(View viewClicked) {
         switch (viewClicked.getId()) {
             case R.id.btnWiFi_AS:
+                new WifiDialog(this).show();
                 break;
             case R.id.btnBluetooth_AS:
                 break;

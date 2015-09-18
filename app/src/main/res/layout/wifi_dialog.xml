@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#BB000000"
+                android:gravity="center">
+
+    <ImageView
+        android:id="@+id/ivCancel_WD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/round_close_x"
+        android:layout_above="@+id/rlContainer_WD"
+        android:layout_toRightOf="@+id/rlContainer_WD"
+        android:layout_toEndOf="@+id/rlContainer_WD"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/wifi_dialog_width"
+        android:layout_height="@dimen/wifi_dialog_height"
+        android:background="@drawable/bg_downloading_game"
+        android:gravity="center_horizontal"
+        android:minWidth="@dimen/wifi_dialog_min_width"
+        android:paddingBottom="@dimen/wifi_dialog_padding_bottom"
+        android:paddingLeft="@dimen/wifi_dialog_padding_left"
+        android:paddingRight="@dimen/wifi_dialog_padding_right"
+        android:paddingTop="@dimen/wifi_dialog_padding_top"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/rlContainer_WD">
+
+        <TextView
+            style="@style/SmallTextStyleWifi"
+            android:textColor="@color/app_button_text_color"
+            android:layout_width="@dimen/wifi_label_width"
+            android:layout_height="wrap_content"
+            android:text="@string/wifi_label_text"
+            android:background="@drawable/bg_instellingen"
+            android:layout_alignParentTop="true"
+            android:id="@+id/tvWifiLabel_WD"/>
+
+        <Switch
+            android:switchTextAppearance="@style/SwitchTextAppearance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/swWifi_WD"
+            android:checked="false"
+            android:thumb="@drawable/switch_thumb"
+            android:track="@drawable/switch_track"
+            android:textOn="@string/wifi_switch_text_in"
+            android:textOff="@string/wifi_switch_text_off"
+            android:textColor="@color/popup_bg_color"
+            android:textColorHint="@color/popup_bg_color"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/switch_margin_left"
+            android:layout_marginEnd="@dimen/switch_margin_right"
+            android:layout_alignTop="@id/tvWifiLabel_WD"
+            android:layout_alignBottom="@id/tvWifiLabel_WD"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wifi_status_text"
+            android:textColor="@color/app_night_sky_color"
+            android:id="@+id/tvStatus_WD"
+            android:layout_alignBaseline="@id/tvWifiLabel_WD"
+            android:layout_alignBottom="@id/tvWifiLabel_WD"
+            android:layout_centerHorizontal="true"/>
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lvNetworks_WD"
+            android:layout_below="@id/tvWifiLabel_WD"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/list_view_networks_margin_top"
+            android:dividerHeight="@dimen/list_view_networks_divider_height"
+            android:divider="@color/table_divider_color"/>
+
+        <ProgressBar
+            android:padding="@dimen/progress_bar_status_padding"
+            android:layout_width="@dimen/progress_bar_status_width"
+            android:layout_height="@dimen/progress_bar_status_height"
+            android:id="@+id/pbStatus_WD"
+            android:visibility="invisible"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/progress_weel"
+            android:layout_above="@id/lvNetworks_WD"
+            android:layout_alignRight="@id/tvWifiLabel_WD"
+            android:layout_alignEnd="@id/tvWifiLabel_WD"
+            android:layout_marginRight="@dimen/progress_bar_status_margin_right"
+            android:layout_marginEnd="@dimen/progress_bar_status_margin_end"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

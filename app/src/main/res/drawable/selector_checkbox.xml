@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:left="@dimen/check_box_button_background_padding"
+                  android:right="@dimen/check_box_button_background_padding"
+                  android:top="@dimen/check_box_button_background_padding"
+                  android:bottom="@dimen/check_box_button_background_padding">
+                <shape android:shape="rectangle">
+                    <size android:height="@dimen/check_box_button_height"
+                          android:width="@dimen/check_box_button_width"/>
+                    <stroke android:color="@color/app_night_sky_color"
+                            android:width="@dimen/check_box_background_stroke_width"/>
+                    <corners android:radius="@dimen/check_box_background_corners_radius"/>
+                </shape>
+            </item>
+            <item android:drawable="@drawable/icn_choose"
+                  android:gravity="center|bottom"
+                  android:top="@dimen/check_box_image_padding_top"
+                  android:bottom="@dimen/check_box_image_padding_bot"
+                  android:right="@dimen/check_box_image_padding_left"
+                  android:left="@dimen/check_box_image_padding_right"/>
+        </layer-list>
+    </item>
+
+    <item android:left="@dimen/check_box_button_background_padding"
+          android:right="@dimen/check_box_button_background_padding"
+          android:top="@dimen/check_box_button_background_padding"
+          android:bottom="@dimen/check_box_button_background_padding">
+        <layer-list>
+            <item android:left="@dimen/check_box_button_background_padding"
+                  android:right="@dimen/check_box_button_background_padding"
+                  android:top="@dimen/check_box_button_background_padding"
+                  android:bottom="@dimen/check_box_button_background_padding">
+                <shape android:shape="rectangle">
+                    <size android:height="@dimen/check_box_button_height"
+                          android:width="@dimen/check_box_button_width"/>
+                    <stroke android:color="@color/app_night_sky_color"
+                            android:width="@dimen/check_box_background_stroke_width"/>
+                    <corners android:radius="@dimen/check_box_background_corners_radius"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
