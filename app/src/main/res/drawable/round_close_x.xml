@@ -3,15 +3,15 @@
     <item>
         <shape android:shape="oval">
             <stroke
-                android:width="@dimen/close_button_stroke_width"
+                android:width="@dimen/round_close_btn_stroke_width"
                 android:color="@color/app_night_sky_color"/>
             <solid android:color="@android:color/white"/>
         </shape>
     </item>
     <item
         android:drawable="@drawable/selector_btn_x"
-        android:bottom="@dimen/close_button_background_padding"
-        android:left="@dimen/close_button_background_padding"
-        android:right="@dimen/close_button_background_padding"
-        android:top="@dimen/close_button_background_padding"/>
+        android:bottom="@dimen/round_close_btn_bottom"
+        android:left="@dimen/round_close_btn_left"
+        android:right="@dimen/round_close_btn_right"
+        android:top="@dimen/round_close_btn_top"/>
 </layer-list>

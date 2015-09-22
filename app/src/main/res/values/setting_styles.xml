@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Bluetooth dialog styles-->
+    <style name="CloseButtonStyle">
+        <item name="android:src">@drawable/round_close_x</item>
+    </style>
+
+    <style name="SettingsDialogStyle">
+        <item name="android:background">@drawable/bg_downloading_game</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:minWidth">400dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingRight">3dp</item>
+        <item name="android:paddingTop">20dp</item>
+    </style>
+
+    <style name="SettingsHeaderStyle" parent="OutlineTextStyle">
+        <item name="android:textColor">@color/app_button_text_color</item>
+        <item name="android:background">@drawable/bg_instellingen</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="SettingProgressBarStyle">
+        <item name="android:padding">5dp</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_weel</item>
+    </style>
+
+    <style name="SettingsStatusStyle">
+        <item name="android:textColor">@color/app_night_sky_color</item>
+    </style>
+
+    <style name="SettingsButtonStyle">
+        <item name="android:textColor">@drawable/selector_bimii_btn_text</item>
+        <item name="android:background">@drawable/selector_bimii_btn_bg</item>
+    </style>
+
+    <style name="SwitchTextAppearance" parent="@android:style/TextAppearance.Holo.Small">
+        <item name="android:textColor">@color/popup_bg_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">normal</item>
+    </style>
+
+    <style name="SettingsSwitchStyle">
+        <item name="android:switchTextAppearance">@style/SwitchTextAppearance</item>
+        <item name="android:thumb">@drawable/switch_thumb</item>
+        <item name="android:track">@drawable/switch_track</item>
+        <item name="android:textOn">ON</item>
+        <item name="android:textOff">OFF</item>
+        <item name="android:textColor">@color/popup_bg_color</item>
+        <item name="android:textColorHint">@color/popup_bg_color</item>
+    </style>
+
+    <style name="SettingsCheckboxStyle">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">@color/download_text_color_progress</item>
+        <item name="android:button">@drawable/selector_checkbox</item>
+    </style>
+
+    <style name="SettingsListStyle">
+        <item name="android:divider">@color/table_divider_color</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+    <!--Bluetooth list item styles-->
+    <style name="BtIconStyle">
+        <item name="android:src">@drawable/icn_bl</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="BtDeviceNameStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/app_night_sky_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+
+    <style name="BtDeviceStatusStyle">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">@color/app_button_text_color_pressed</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!--Bluetooth unpair dialog styles-->
+    <style name="BtUnpairMsgStyle">
+        <item name="android:textColor">@color/app_night_sky_color</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="BtUnpaidButtonStyle">
+        <item name="android:textColor">@drawable/selector_bimii_btn_text</item>
+        <item name="android:background">@drawable/selector_bimii_btn_bg</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!--Wifi list item styles-->
+    <style name="WfNetworkNameStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+
+    <style name="WfNetworkStatusStyle">
+        <item name="android:textSize">11sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+
+    <style name="WfSygnalStyle">
+        <item name="android:layout_marginLeft">19dp</item>
+        <item name="android:layout_marginRight">19dp</item>
+    </style>
+
+    <!--Wifi pass dialog styles-->
+    <style name="WfPassDialogNetworkNameStyle">
+        <item name="android:textSize">25sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textColor">@color/app_night_sky_color</item>
+    </style>
+
+    <style name="WfPassDialogTvEnterPassStyle">
+        <item name="android:typeface">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/app_night_sky_color</item>
+        <item name="android:layout_margin">7dp</item>
+    </style>
+
+    <style name="WfPassDialogEtStyle">
+        <item name="android:minWidth">230dp</item>
+        <item name="android:maxWidth">230dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginBottom">3dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/bg_white_field</item>
+        <item name="android:textColor">@color/app_night_sky_color</item>
+        <item name="android:textColorHint">@color/app_hint_color</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="WfPassDialogCbStyle">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">@color/download_text_color_progress</item>
+        <item name="android:button">@drawable/selector_checkbox</item>
+    </style>
+
+    <style name="WfPassDialogBtnStyle">
+        <item name="android:textColor">@drawable/selector_bimii_btn_text</item>
+        <item name="android:background">@drawable/selector_bimii_btn_bg</item>
+    </style>
+
+</resources>

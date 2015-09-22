@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#BB000000">
+
+    <LinearLayout
+        style="@style/SettingsDialogStyle"
+        android:id="@+id/rlContainer_BUD"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            style="@style/BtUnpairMsgStyle"
+            android:id="@+id/tvMessage_BUD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/BtUnpaidButtonStyle"
+                android:id="@+id/btnOk_BUD"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:text="Ok"/>
+
+            <Button
+                style="@style/BtUnpaidButtonStyle"
+                android:id="@+id/btnCancel_BUD"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:text="Cancel"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

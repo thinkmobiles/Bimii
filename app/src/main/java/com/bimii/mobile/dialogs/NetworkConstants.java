@@ -13,4 +13,6 @@ public class NetworkConstants {
 
     public static final int MIN_PASS_LENGTH = 8;
 
+    public static final int DISCOVERABLE_DURATION = 120;
+
 }

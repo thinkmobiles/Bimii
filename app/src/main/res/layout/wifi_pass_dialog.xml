@@ -6,91 +6,72 @@
                 android:gravity="center">
 
     <RelativeLayout
-        android:layout_width="@dimen/wifi_pass_dialog_width"
-        android:layout_height="@dimen/wifi_pass_dialog_height"
-        android:background="@drawable/bg_downloading_game"
-        android:gravity="center_horizontal"
-        android:minWidth="@dimen/wifi_pass_dialog_min_width"
-        android:paddingBottom="@dimen/wifi_pass_dialog_padding_bottom"
-        android:paddingLeft="@dimen/wifi_pass_dialog_padding_left"
-        android:paddingRight="@dimen/wifi_pass_dialog_padding_right"
-        android:paddingTop="@dimen/wifi_pass_dialog_padding_top"
+        style="@style/SettingsDialogStyle"
+        android:id="@+id/rlContainer_WPD"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/rlContainer_WPD">
+        android:layout_alignParentStart="true">
 
 
         <TextView
+            style="@style/WfPassDialogNetworkNameStyle"
+            android:id="@+id/tvSSID_WPD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/wifi_pass_dialog_network_name_text_size"
-            android:padding="@dimen/wifi_pass_dialog_network_name_padding"
-            android:textColor="@color/app_night_sky_color"
-            android:id="@+id/tvSSID_WPD"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"/>
 
         <TextView
+            style="@style/WfPassDialogTvEnterPassStyle"
+            android:id="@+id/tvEnterPassword_WPD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/enter_password"
-            android:id="@+id/tvEnterPassword_WPD"
-            android:typeface="normal"
-            android:textSize="@dimen/wifi_pass_dialog_enter_password_text_size"
-            android:textColor="@color/app_night_sky_color"
             android:layout_above="@+id/etPass_WPD"
             android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/wifi_pass_dialog_enter_password_margin"/>
+            android:text="Enter password"/>
 
         <EditText
+            style="@style/WfPassDialogEtStyle"
             android:id="@+id/etPass_WPD"
-            style="@style/EditTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:hint="@string/wifi_et_password_hint"
-            android:inputType="textPassword"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:hint="Password"/>
 
         <CheckBox
-            android:layout_width="@dimen/wifi_pass_dialog_check_box_width"
-            android:layout_height="wrap_content"
-            android:text="@string/wifi_pass_dialog_check_box_text"
-            android:textSize="@dimen/wifi_pass_dialog_check_box_text_size"
-            android:textStyle="bold"
-            android:typeface="normal"
-            android:textColor="@color/download_text_color_progress"
+            style="@style/WfPassDialogCbStyle"
             android:id="@+id/cbSavePass_WPD"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/etPass_WPD"
             android:layout_alignLeft="@id/etPass_WPD"
             android:layout_alignStart="@id/etPass_WPD"
             android:checked="false"
-            android:button="@drawable/selector_checkbox"/>
+            android:text="Save password"/>
 
         <Button
-            android:layout_width="@dimen/wifi_pass_dialog_btn_cancel_width"
-            android:layout_height="wrap_content"
+            style="@style/WfPassDialogBtnStyle"
             android:id="@+id/btnCancel_WPD"
-            android:text="@string/wifi_pass_dialog_btn_cancel_text"
-            android:textColor="@drawable/selector_bimii_btn_text"
-            android:background="@drawable/selector_bimii_btn_bg"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/wifi_pass_dialog_btn_cancel_margin"/>
+            android:text="Cancel"/>
 
         <Button
-            android:layout_width="@dimen/wifi_pass_dialog_btn_connect_width"
-            android:layout_height="wrap_content"
+            style="@style/WfPassDialogBtnStyle"
             android:id="@+id/btnConnect_WPD"
-            android:text="@string/wifi_pass_dialog_btn_connect_text"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
             android:visibility="invisible"
-            android:textColor="@drawable/selector_bimii_btn_text"
-            android:background="@drawable/selector_bimii_btn_bg"
-            android:layout_alignTop="@id/btnCancel_WPD"
-            android:layout_alignRight="@id/etPass_WPD"
-            android:layout_alignEnd="@id/etPass_WPD"/>
+
+            android:text="Connect"
+            android:layout_alignTop="@+id/btnCancel_WPD"
+            android:layout_alignRight="@+id/etPass_WPD"
+            android:layout_alignEnd="@+id/etPass_WPD"/>
 
     </RelativeLayout>
 

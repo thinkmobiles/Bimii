@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/wifi_list_item_height"
-                android:padding="@dimen/wifi_list_item_padding">
+                android:layout_height="50dp"
+                android:padding="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,24 +10,17 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/WfNetworkNameStyle"
+            android:id="@+id/tvNetworkName_WLI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvNetworkName_WLI"
-            android:textSize="@dimen/wifi_list_item_network_name_text_size"
-            android:textStyle="bold"
-            android:typeface="normal"
-            android:layout_marginLeft="@dimen/wifi_list_item_network_name_margin_left"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            android:layout_weight="1"/>
 
         <TextView
+            style="@style/WfNetworkStatusStyle"
+            android:id="@+id/tvNetworkStatus_WLI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvNetworkStatus_WLI"
-            android:textSize="@dimen/wifi_list_item_status_text_size"
-            android:typeface="normal"
-            android:layout_marginLeft="@dimen/wifi_list_item_status_margin_left"
-            android:visibility="gone"
             android:layout_weight="1"/>
 
     </LinearLayout>
@@ -39,19 +32,18 @@
         android:layout_alignParentRight="true">
 
         <ImageView
+            style="@style/WfSygnalStyle"
+            android:id="@+id/ivSygnal_WLI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ivSygnal_WLI"
-            android:layout_marginRight="@dimen/wifi_list_item_sygnal_margin_right"
-            android:layout_marginEnd="@dimen/wifi_list_item_sygnal_margin_end"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
 
         <ImageView
+            android:id="@+id/ivLock_WLI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ivLock_WLI"
             android:layout_alignBottom="@id/ivSygnal_WLI"
             android:layout_alignRight="@id/ivSygnal_WLI"/>
 

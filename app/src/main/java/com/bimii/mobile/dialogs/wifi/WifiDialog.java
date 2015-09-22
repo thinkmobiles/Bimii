@@ -59,7 +59,6 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
     public WifiDialog(Context context) {
         super(context, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         mCtx = context;
-        setCancelable(false);
     }
 
     @Override

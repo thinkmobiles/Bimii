@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#BB000000">
+
+    <ImageView
+        style="@style/CloseButtonStyle"
+        android:id="@+id/ivCancel_BD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlContainer_BD"
+        android:layout_toRightOf="@+id/rlContainer_BD"
+        android:layout_toEndOf="@+id/rlContainer_BD"/>
+
+    <RelativeLayout
+        style="@style/SettingsDialogStyle"
+        android:id="@+id/rlContainer_BD"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            style="@style/SettingsHeaderStyle"
+            android:id="@+id/tvBtLabel_BD"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Bluetooth"/>
+
+        <ProgressBar
+            style="@style/SettingProgressBarStyle"
+            android:id="@+id/pbStatus_BD"
+            android:layout_width="35dp"
+            android:layout_height="38dp"
+            android:layout_above="@+id/lvDevices_BD"
+            android:layout_alignRight="@id/tvBtLabel_BD"
+            android:layout_alignEnd="@id/tvBtLabel_BD"
+            android:layout_marginRight="23dp"
+            android:layout_marginEnd="30dp"/>
+
+        <Switch
+            style="@style/SettingsSwitchStyle"
+            android:id="@+id/swBt_BD"
+            android:checked="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="18dp"
+            android:layout_marginEnd="18dp"
+            android:layout_alignTop="@id/tvBtLabel_BD"
+            android:layout_alignBottom="@id/tvBtLabel_BD"/>
+
+        <TextView
+            style="@style/SettingsStatusStyle"
+            android:id="@+id/tvStatus_BD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_alignBaseline="@id/tvBtLabel_BD"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/tvBtLabel_BD"
+            android:text="Turn on bluetooth"/>
+
+        <Button
+            style="@style/SettingsButtonStyle"
+            android:id="@+id/btnScan_BD"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Scan"/>
+
+        <CheckBox
+            style="@style/SettingsCheckboxStyle"
+            android:id="@+id/cbVisible_BD"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:checked="false"
+            android:layout_alignTop="@+id/btnScan_BD"
+            android:layout_alignRight="@+id/swBt_BD"
+            android:layout_alignEnd="@+id/swBt_BD"
+            android:text="Visible"/>
+
+        <ListView
+            style="@style/SettingsListStyle"
+            android:id="@+id/lvDevices_BD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/btnScan_BD"
+            android:layout_below="@+id/tvBtLabel_BD"
+            android:layout_margin="5dp"
+            android:paddingTop="10dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
