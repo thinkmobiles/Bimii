@@ -29,7 +29,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="Bluetooth"/>
+            android:text="@string/bt_label"/>
 
         <ProgressBar
             style="@style/SettingProgressBarStyle"
@@ -38,20 +38,15 @@
             android:layout_height="38dp"
             android:layout_above="@+id/lvDevices_BD"
             android:layout_alignRight="@id/tvBtLabel_BD"
-            android:layout_alignEnd="@id/tvBtLabel_BD"
-            android:layout_marginRight="23dp"
-            android:layout_marginEnd="30dp"/>
+            android:layout_alignEnd="@id/tvBtLabel_BD"/>
 
         <Switch
             style="@style/SettingsSwitchStyle"
             android:id="@+id/swBt_BD"
-            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="18dp"
-            android:layout_marginEnd="18dp"
             android:layout_alignTop="@id/tvBtLabel_BD"
             android:layout_alignBottom="@id/tvBtLabel_BD"/>
 
@@ -60,11 +55,10 @@
             android:id="@+id/tvStatus_BD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_alignBaseline="@id/tvBtLabel_BD"
             android:layout_centerHorizontal="true"
+            android:layout_alignBaseline="@id/tvBtLabel_BD"
             android:layout_toRightOf="@id/tvBtLabel_BD"
-            android:text="Turn on bluetooth"/>
+            android:text="@string/bt_status_turn_on"/>
 
         <Button
             style="@style/SettingsButtonStyle"
@@ -73,19 +67,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="Scan"/>
+            android:text="@string/bt_dialog_btn_scan"/>
 
         <CheckBox
             style="@style/SettingsCheckboxStyle"
             android:id="@+id/cbVisible_BD"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:checked="false"
             android:layout_alignTop="@+id/btnScan_BD"
             android:layout_alignRight="@+id/swBt_BD"
             android:layout_alignEnd="@+id/swBt_BD"
-            android:text="Visible"/>
+            android:text="@string/bt_dialog_checkbox_text"/>
 
         <ListView
             style="@style/SettingsListStyle"
@@ -94,9 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/btnScan_BD"
-            android:layout_below="@+id/tvBtLabel_BD"
-            android:layout_margin="5dp"
-            android:paddingTop="10dp"/>
+            android:layout_below="@+id/tvBtLabel_BD"/>
 
     </RelativeLayout>
 

@@ -148,7 +148,7 @@ public class BtDialog extends Dialog implements BtUpdateCallback, UnpairCallback
             cbVisible_BD    .setEnabled(false);
         }
         mBtListAdapter  .update(new ArrayList<BluetoothDevice>());
-        tvStatus_BD     .setText(mCtx.getResources().getString(R.string.bt_msg_turn_on));
+        tvStatus_BD     .setText(mCtx.getResources().getString(R.string.bt_status_turn_on));
         pbStatus_BD     .setVisibility(View.INVISIBLE);
         try {
             mCtx.unregisterReceiver(mBtReceiver);
@@ -201,7 +201,7 @@ public class BtDialog extends Dialog implements BtUpdateCallback, UnpairCallback
     @Override
     public void startScan() {
         mBtAdapter      .startDiscovery();
-        tvStatus_BD     .setText(mCtx.getResources().getString(R.string.bt_msg_scanning));
+        tvStatus_BD     .setText(mCtx.getResources().getString(R.string.bt_status_scanning));
         pbStatus_BD     .setVisibility(View.VISIBLE);
     }
 

@@ -14,6 +14,7 @@ import com.bimii.mobile.cache.CacheConstants;
 import com.bimii.mobile.cache.CacheHelper;
 import com.bimii.mobile.dialogs.DownloadDialog;
 import com.bimii.mobile.dialogs.DownloadDialog.InstallGameEvent;
+import com.bimii.mobile.dialogs.LauncherSwitchDialog;
 import com.bimii.mobile.dialogs.ProgressDialog;
 import com.bimii.mobile.dialogs.bluetooth.BtDialog;
 import com.bimii.mobile.dialogs.wifi.WifiDialog;
@@ -80,6 +81,8 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
                 new BtDialog(this).show();
                 break;
             case R.id.btnLauncherSwitch_AS:
+                new LauncherSwitchDialog(this).show();
+
                 break;
         }
     }

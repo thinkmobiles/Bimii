@@ -27,7 +27,7 @@ public class WifiReceiver extends BroadcastReceiver {
                 mCallback.updateWifiState(_context.getResources().getString(R.string.wifi_status_scanning), true);
                 break;
             case WifiManager.SCAN_RESULTS_AVAILABLE_ACTION:     // update list view with scan values
-                mCallback.updateWifiState("", false);
+                mCallback.updateWifiState(_context.getResources().getString(R.string.empty_string), false);
                 break;
             case WifiManager.SUPPLICANT_STATE_CHANGED_ACTION:
                 SupplicantState supl_state=(_intent.getParcelableExtra(WifiManager.EXTRA_NEW_STATE));
@@ -39,7 +39,7 @@ public class WifiReceiver extends BroadcastReceiver {
                         mCallback.updateWifiState(_context.getResources().getString(R.string.wifi_status_connecting), true);
                         break;
                     case COMPLETED:     // connected | finish scanning
-                        mCallback.updateWifiState("", false);
+                        mCallback.updateWifiState(_context.getResources().getString(R.string.empty_string), false);
                         mCallback.savePass(true);
                         break;
                 }

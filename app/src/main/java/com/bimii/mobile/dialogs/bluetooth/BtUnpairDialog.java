@@ -46,6 +46,6 @@ public class BtUnpairDialog extends Dialog {
         setContentView(R.layout.bt_unpair_dialog);
         ButterKnife.bind(this);
         setCancelable(false);
-        tvMessage_BUD.setText(String.format(getContext().getResources().getString(R.string.bt_unpaid_dialog_msg_format), mDevice.getName()));
+        tvMessage_BUD.setText(String.format(getContext().getResources().getString(R.string.bt_unpair_dialog_msg_format), mDevice.getName()));
     }
 }

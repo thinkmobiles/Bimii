@@ -105,7 +105,7 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
     private String getWifiState(ScanResult _scanResult) {
         String current = String.format("\"%s\"", _scanResult.SSID);
         if(current.equals(getCurrentWifiName())) return NetworkConstants.CONNECTED;
-        return "";
+        return mCtx.getResources().getString(R.string.empty_string);
     }
 
     /*Get current (connected) wifi network name*/

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#BB000000">
+
+    <RelativeLayout
+        style="@style/SettingsDialogStyle"
+        android:id="@+id/rlContainer_LSD"
+        android:layout_width="400dp"
+        android:layout_height="230dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            style="@style/SettingsHeaderStyle"
+            android:id="@+id/tvSwitchLabel_LSD"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="@string/ls_label"/>
+
+        <ImageView
+            style="@style/SwDialogCloseImageStyle"
+            android:id="@+id/ivClose_LSD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvSwitchLabel_LSD"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/rlAndroidLauncher_LSD"
+                android:clickable="true">
+
+                <ImageView
+                    style="@style/SwDialogLauncherImageStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivAndroid_LSD"
+                    android:src="@drawable/selector_android_launcher"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <com.bimii.mobile.custom.StrokeTextView
+                    style="@style/SwDialogTextStyle"
+                    android:id="@+id/tvAndroid_LSD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ivAndroid_LSD"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/ls_android_launcher_text"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/rlBimiiLauncher_LSD"
+                android:clickable="true">
+
+                <ImageView
+                    style="@style/SwDialogLauncherImageStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivBimii_LSD"
+                    android:src="@drawable/selector_bimii_launcher"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <com.bimii.mobile.custom.StrokeTextView
+                    style="@style/SwDialogTextStyle"
+                    android:id="@+id/tvBimii_LSD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ivBimii_LSD"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/ls_bimii_launcher_text"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

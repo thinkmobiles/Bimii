@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/etPass_WPD"
             android:layout_centerHorizontal="true"
-            android:text="Enter password"/>
+            android:text="@string/wifi_pass_dialog_enter_password"/>
 
         <EditText
             style="@style/WfPassDialogEtStyle"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:hint="Password"/>
+            android:hint="@string/wifi_pass_dialog_et_hint"/>
 
         <CheckBox
             style="@style/WfPassDialogCbStyle"
@@ -49,8 +49,7 @@
             android:layout_below="@id/etPass_WPD"
             android:layout_alignLeft="@id/etPass_WPD"
             android:layout_alignStart="@id/etPass_WPD"
-            android:checked="false"
-            android:text="Save password"/>
+            android:text="@string/wifi_pass_dialog_cb_text"/>
 
         <Button
             style="@style/WfPassDialogBtnStyle"
@@ -59,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="Cancel"/>
+            android:text="@string/wifi_pass_dialog_btn_cancel_text"/>
 
         <Button
             style="@style/WfPassDialogBtnStyle"
@@ -67,11 +66,10 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:visibility="invisible"
-
-            android:text="Connect"
             android:layout_alignTop="@+id/btnCancel_WPD"
             android:layout_alignRight="@+id/etPass_WPD"
-            android:layout_alignEnd="@+id/etPass_WPD"/>
+            android:layout_alignEnd="@+id/etPass_WPD"
+            android:text="@string/wifi_pass_dialog_btn_connect_text"/>
 
     </RelativeLayout>
 

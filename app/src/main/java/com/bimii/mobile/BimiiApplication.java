@@ -1,6 +1,7 @@
 package com.bimii.mobile;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.bimii.mobile.games.base.BaseHelperFactory;
 

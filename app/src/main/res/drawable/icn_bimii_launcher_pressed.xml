@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="5dp"
+                    android:color="@color/app_night_sky_color"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/icn_bimii_launcher"
+          android:top="5dp"
+          android:bottom="5dp"
+          android:left="5dp"
+          android:right="5dp">
+    </item>
+</layer-list>

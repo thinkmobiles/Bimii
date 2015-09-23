@@ -48,4 +48,5 @@
             android:layout_alignRight="@id/ivSygnal_WLI"/>
 
     </RelativeLayout>
+
 </RelativeLayout>

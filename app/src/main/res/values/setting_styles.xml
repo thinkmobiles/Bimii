@@ -31,10 +31,13 @@
         <item name="android:visibility">invisible</item>
         <item name="android:indeterminate">true</item>
         <item name="android:indeterminateDrawable">@drawable/progress_weel</item>
+        <item name="android:layout_marginRight">23dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
     </style>
 
     <style name="SettingsStatusStyle">
         <item name="android:textColor">@color/app_night_sky_color</item>
+        <item name="android:layout_marginLeft">15dp</item>
     </style>
 
     <style name="SettingsButtonStyle">
@@ -52,10 +55,14 @@
         <item name="android:switchTextAppearance">@style/SwitchTextAppearance</item>
         <item name="android:thumb">@drawable/switch_thumb</item>
         <item name="android:track">@drawable/switch_track</item>
-        <item name="android:textOn">ON</item>
-        <item name="android:textOff">OFF</item>
+        <item name="android:textOn">@string/switch_on</item>
+        <item name="android:textOff">@string/switch_off</item>
         <item name="android:textColor">@color/popup_bg_color</item>
         <item name="android:textColorHint">@color/popup_bg_color</item>
+        <item name="android:checked">false</item>
+        <item name="android:layout_marginRight">18dp</item>
+        <item name="android:layout_marginEnd">18dp</item>
+
     </style>
 
     <style name="SettingsCheckboxStyle">
@@ -64,11 +71,18 @@
         <item name="android:typeface">normal</item>
         <item name="android:textColor">@color/download_text_color_progress</item>
         <item name="android:button">@drawable/selector_checkbox</item>
+        <item name="android:enabled">false</item>
+        <item name="android:checked">false</item>
+        <item name="android:layout_marginRight">18dp</item>
+        <item name="android:layout_marginEnd">18dp</item>
     </style>
 
     <style name="SettingsListStyle">
         <item name="android:divider">@color/table_divider_color</item>
         <item name="android:dividerHeight">1dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:layout_marginTop">26dp</item>
     </style>
 
     <!--Bluetooth list item styles-->
@@ -112,51 +126,51 @@
 
     <!--Wifi list item styles-->
     <style name="WfNetworkNameStyle">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/wifi_network_name_text_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">normal</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginLeft">@dimen/wifi_network_name_margin_left</item>
     </style>
 
     <style name="WfNetworkStatusStyle">
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">@dimen/wifi_network_status_text_size</item>
         <item name="android:typeface">normal</item>
         <item name="android:visibility">gone</item>
-        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginLeft">@dimen/wifi_network_status_margin_left</item>
     </style>
 
     <style name="WfSygnalStyle">
-        <item name="android:layout_marginLeft">19dp</item>
-        <item name="android:layout_marginRight">19dp</item>
+        <item name="android:layout_marginLeft">@dimen/wifi_sygnal_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/wifi_sygnal_margin_right</item>
     </style>
 
     <!--Wifi pass dialog styles-->
     <style name="WfPassDialogNetworkNameStyle">
-        <item name="android:textSize">25sp</item>
-        <item name="android:padding">12dp</item>
+        <item name="android:textSize">@dimen/wifi_pass_dialog_network_name_text_size</item>
+        <item name="android:padding">@dimen/wifi_pass_dialog_network_name_padding</item>
         <item name="android:textColor">@color/app_night_sky_color</item>
     </style>
 
     <style name="WfPassDialogTvEnterPassStyle">
         <item name="android:typeface">normal</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/wifi_pass_dialog_tv_enter_pass_text_size</item>
         <item name="android:textColor">@color/app_night_sky_color</item>
-        <item name="android:layout_margin">7dp</item>
+        <item name="android:layout_margin">@dimen/wifi_pass_dialog_tv_enter_pass_margin</item>
     </style>
 
     <style name="WfPassDialogEtStyle">
-        <item name="android:minWidth">230dp</item>
-        <item name="android:maxWidth">230dp</item>
-        <item name="android:paddingBottom">6dp</item>
-        <item name="android:paddingTop">6dp</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingRight">12dp</item>
-        <item name="android:layout_marginTop">3dp</item>
-        <item name="android:layout_marginBottom">3dp</item>
-        <item name="android:layout_marginLeft">20dp</item>
-        <item name="android:layout_marginRight">20dp</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:minWidth">@dimen/wifi_pass_dialog_et_min_width</item>
+        <item name="android:maxWidth">@dimen/wifi_pass_dialog_et_max_width</item>
+        <item name="android:paddingBottom">@dimen/wifi_pass_dialog_et_padding_bottom</item>
+        <item name="android:paddingTop">@dimen/wifi_pass_dialog_et_padding_top</item>
+        <item name="android:paddingLeft">@dimen/wifi_pass_dialog_et_padding_left</item>
+        <item name="android:paddingRight">@dimen/wifi_pass_dialog_et_padding_right</item>
+        <item name="android:layout_marginTop">@dimen/wifi_pass_dialog_et_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/wifi_pass_dialog_et_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/wifi_pass_dialog_et_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/wifi_pass_dialog_et_margin_right</item>
+        <item name="android:textSize">@dimen/wifi_pass_dialog_et_text_size</item>
         <item name="android:background">@drawable/bg_white_field</item>
         <item name="android:textColor">@color/app_night_sky_color</item>
         <item name="android:textColorHint">@color/app_hint_color</item>
@@ -165,16 +179,37 @@
     </style>
 
     <style name="WfPassDialogCbStyle">
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">@dimen/wifi_pass_dialog_checkbox_text_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">normal</item>
         <item name="android:textColor">@color/download_text_color_progress</item>
         <item name="android:button">@drawable/selector_checkbox</item>
+        <item name="android:checked">false</item>
     </style>
 
     <style name="WfPassDialogBtnStyle">
         <item name="android:textColor">@drawable/selector_bimii_btn_text</item>
         <item name="android:background">@drawable/selector_bimii_btn_bg</item>
+        <item name="android:layout_marginBottom">@dimen/wifi_pass_dialog_btn_margin_bottom</item>
+    </style>
+
+    <!--Switch launcher dialog styles-->
+    <style name="SwDialogCloseImageStyle">
+        <item name="android:src">@drawable/selector_btn_x</item>
+        <item name="android:layout_marginLeft">@dimen/wifi_switch_dialog_image_close_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/wifi_switch_dialog_image_close_margin_right</item>
+    </style>
+
+    <style name="SwDialogLauncherImageStyle">
+        <item name="android:layout_marginTop">@dimen/wifi_switch_dialog_launcher_image_margin_top</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="SwDialogTextStyle">
+        <item name="android:textColor">@color/app_text_color</item>
+        <item name="android:layout_marginTop">@dimen/wifi_switch_dialog_text_margin_top</item>
+        <item name="textStrokeColor">@color/app_night_sky_color</item>
+        <item name="textStrokeWidth">@dimen/wifi_switch_dialog_text_stroke_width</item>
     </style>
 
 </resources>

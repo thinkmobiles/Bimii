@@ -23,18 +23,18 @@ import com.bimii.mobile.R;
 import com.bimii.mobile.dialogs.NetworkConstants;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
+import butterknife.OnItemLongClick;
 
 /**
  * Created by WORK on 11.09.2015.
  */
-public final class WifiDialog extends Dialog implements WifiUpdateCallback, WifiConnectionCallback {
+public final class WifiDialog extends Dialog implements WifiUpdateCallback, WifiConnectionCallback, ForgetNetworkCallback {
 
     private Context                     mCtx;
 
@@ -99,7 +99,7 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
             mWifiManager        .setWifiEnabled(false);
             mCtx                .unregisterReceiver(mWifiReceiver);
             mWifiListAdapter    .update(new ArrayList<ScanResult>());
-            tvStatus_WD         .setText(mCtx.getResources().getString(R.string.turn_on_wifi));
+            tvStatus_WD         .setText(mCtx.getResources().getString(R.string.wifi_status_turn_on));
             pbStatus_WD         .setVisibility(View.INVISIBLE);
         }
     }
@@ -110,7 +110,7 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
         if(!ssid.equalsIgnoreCase(getCurrentSsid(getContext()))) {
             if (((ImageView) view.findViewById(R.id.ivLock_WLI)).getDrawable() != null) {
                 if (mSharedPreferences.contains(ssid)) {
-                    String pass = mSharedPreferences.getString(ssid, "");
+                    String pass = mSharedPreferences.getString(ssid, mCtx.getResources().getString(R.string.empty_string));
                     connectToLockedNetwork(ssid, pass);
                 } else
                     new WifiPasswordDialog(getContext(), this, ssid).show();
@@ -120,27 +120,13 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
         }
     }
 
-//    /*Show forget network dialog | w/o disconnect*/
-//    @OnItemLongClick(R.id.lvNetworks_WD)
-//    protected boolean forgetWifi(View view) {
-//        final String ssid = ((TextView) view.findViewById(R.id.tvNetworkName_WLI)).getText().toString();
-//        AlertDialog.Builder adb = new AlertDialog.Builder(mCtx)
-//                .setMessage("Forget network " + ssid + "?")
-//                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        if(mSharedPreferences.contains(ssid)) mSharedPreferences.edit().remove(ssid).commit();
-//                    }
-//                })
-//                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        dialogInterface.dismiss();
-//                    }
-//                });
-//        adb.create().show();
-//        return true;
-//    }
+    /*Show forget network dialog | w/o disconnect*/
+    @OnItemLongClick(R.id.lvNetworks_WD)
+    protected boolean forgetWifi(View view) {
+        final String ssid = ((TextView) view.findViewById(R.id.tvNetworkName_WLI)).getText().toString();
+        if(mSharedPreferences.contains(ssid)) new ForgetWifiNetworkDialog(mCtx, this, ssid).show();
+        return true;
+    }
 
     /*Save network password to shared preferences*/
     @Override
@@ -197,7 +183,19 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
 
     @Override
     public void savePass(boolean _isSave) {
-        if(_isSave) mEditor.commit();
-        else mEditor.clear();
+        if(_isSave) {
+            mEditor.commit();
+        } else {
+            mEditor = null;
+            mEditor = mSharedPreferences.edit();
+        }
+
+    }
+
+    @Override
+    public void forgetNetwork(String _ssid) {
+        if(mSharedPreferences.contains(_ssid)) mSharedPreferences.edit().remove(_ssid).commit();
+        mWifiManager.disconnect();
+        mWifiListAdapter.notifyDataSetChanged();
     }
 }

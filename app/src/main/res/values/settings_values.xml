@@ -4,26 +4,74 @@
     <!--Strings-->
 
     <string name="empty_string"></string>
-    <string name="enter_password">Enter password</string>
-    <string name="turn_on_wifi">Turn on Wi-Fi</string>
+    <string name="switch_on">ON</string>
+    <string name="switch_off">OFF</string>
+
+
+    <!--WIFI Strings-->
+    <string name="wifi_label">Wi - Fi</string>
+    <string name="wifi_status_text">Choose network...</string>
+    <string name="wifi_status_turn_on">Turn on Wi-Fi</string>
     <string name="wifi_status_scanning">Scanning...</string>
     <string name="wifi_status_connecting">Connecting...</string>
     <string name="wifi_status_password_denied">Password denied</string>
-    <string name="wifi_label_text">Wi - Fi</string>
-    <string name="wifi_switch_text_in">ON</string>
-    <string name="wifi_switch_text_off">OFF</string>
-    <string name="wifi_status_text">Choose network...</string>
-    <string name="wifi_et_password_hint">Password</string>
-    <string name="wifi_pass_dialog_check_box_text">Save password</string>
+    <string name="wifi_pass_dialog_enter_password">Enter password</string>
+    <string name="wifi_pass_dialog_et_hint">Password</string>
+    <string name="wifi_pass_dialog_cb_text">Save password</string>
     <string name="wifi_pass_dialog_btn_cancel_text">Cancel</string>
     <string name="wifi_pass_dialog_btn_connect_text">Connect</string>
+    <string name="wifi_forget_network_dialog_btn_ok_text">OK</string>
+    <string name="wifi_forget_network_dialog_btn_cancel_text">Cancel</string>
+    <string name="wifi_forget_network_dialog_msg_format">Forget network %s ?</string>
 
+    <!--BLUETOOTH Strings-->
+    <string name="bt_label">Bluetooth</string>
+    <string name="bt_status_turn_on">Turn on bluetooth</string>
+    <string name="bt_status_scanning">Scanning...</string>
+    <string name="bt_dialog_btn_scan">Scan</string>
+    <string name="bt_dialog_checkbox_text">Visible</string>
+    <string name="bt_unpair_dialog_btn_ok_text">OK</string>
+    <string name="bt_unpair_dialog_btn_cancel_text">Cancel</string>
     <string name="bt_toast_turn_on_bt">Turn on bluetooth first</string>
-    <string name="bt_msg_turn_on">Turn on bluetooth</string>
-    <string name="bt_msg_scanning">Scanning...</string>
     <string name="bt_item_status_pairing">Pairing...</string>
     <string name="bt_item_status_paired">Paired</string>
-    <string name="bt_unpaid_dialog_msg_format">Unpair from %s ?</string>
+    <string name="bt_unpair_dialog_msg_format">Unpair from %s ?</string>
+
+    <!--LAUNCHER SWITCH Strings-->
+    <string name="ls_label">Launcher switch</string>
+    <string name="ls_android_launcher_text">Android Launcher</string>
+    <string name="ls_bimii_launcher_text">Bimii Launcher</string>
+
+
+    <!--WIFI Dimensions-->
+    <dimen name="wifi_network_name_text_size">18sp</dimen>
+    <dimen name="wifi_network_name_margin_left">15dp</dimen>
+    <dimen name="wifi_network_status_text_size">11sp</dimen>
+    <dimen name="wifi_network_status_margin_left">15dp</dimen>
+    <dimen name="wifi_sygnal_margin_left">19dp</dimen>
+    <dimen name="wifi_sygnal_margin_right">19dp</dimen>
+    <dimen name="wifi_pass_dialog_network_name_text_size">25sp</dimen>
+    <dimen name="wifi_pass_dialog_network_name_padding">12dp</dimen>
+    <dimen name="wifi_pass_dialog_tv_enter_pass_text_size">17sp</dimen>
+    <dimen name="wifi_pass_dialog_tv_enter_pass_margin">7dp</dimen>
+    <dimen name="wifi_pass_dialog_et_min_width">230dp</dimen>
+    <dimen name="wifi_pass_dialog_et_max_width">230dp</dimen>
+    <dimen name="wifi_pass_dialog_et_padding_bottom">6dp</dimen>
+    <dimen name="wifi_pass_dialog_et_padding_top">6dp</dimen>
+    <dimen name="wifi_pass_dialog_et_padding_left">12dp</dimen>
+    <dimen name="wifi_pass_dialog_et_padding_right">12dp</dimen>
+    <dimen name="wifi_pass_dialog_et_margin_top">3dp</dimen>
+    <dimen name="wifi_pass_dialog_et_margin_bottom">3dp</dimen>
+    <dimen name="wifi_pass_dialog_et_margin_left">20dp</dimen>
+    <dimen name="wifi_pass_dialog_et_margin_right">20dp</dimen>
+    <dimen name="wifi_pass_dialog_et_text_size">18sp</dimen>
+    <dimen name="wifi_pass_dialog_checkbox_text_size">13sp</dimen>
+    <dimen name="wifi_pass_dialog_btn_margin_bottom">10dp</dimen>
+    <dimen name="wifi_switch_dialog_image_close_margin_left">18dp</dimen>
+    <dimen name="wifi_switch_dialog_image_close_margin_right">18dp</dimen>
+    <dimen name="wifi_switch_dialog_launcher_image_margin_top">20dp</dimen>
+    <dimen name="wifi_switch_dialog_text_margin_top">20dp</dimen>
+    <dimen name="wifi_switch_dialog_text_stroke_width">3dp</dimen>
 
     <!--Custom drawable dimensions-->
     <dimen name="round_close_btn_stroke_width">1dp</dimen>
@@ -54,7 +102,7 @@
     <dimen name="cb_shape_left_unchecked">5dp</dimen>
     <dimen name="cb_shape_width_unchecked">20dp</dimen>
     <dimen name="cb_shape_height_unchecked">20dp</dimen>
-    <dimen name="cb_shape_stroke_width_unchecked"></dimen>
+    <dimen name="cb_shape_stroke_width_unchecked">2dp</dimen>
     <dimen name="cb_shape_corners_radius_unchecked">4dp</dimen>
 
     <dimen name="sw_thumb_width">35dp</dimen>
