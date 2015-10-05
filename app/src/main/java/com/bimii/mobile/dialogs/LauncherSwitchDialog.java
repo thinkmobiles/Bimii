@@ -11,7 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bimii.mobile.BimiiApplication;
+import com.bimii.mobile.LoginActivity;
 import com.bimii.mobile.R;
+import com.bimii.mobile.SettingsActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -41,12 +43,12 @@ public class LauncherSwitchDialog extends Dialog {
     @OnClick(R.id.rlAndroidLauncher_LSD)
     protected void clickAndroidLauncher() {
         //TODO app exit point. Turn off KIOSK mode
-//        Intent intent = new Intent(Intent.ACTION_MAIN);
-//        intent.addCategory(Intent.CATEGORY_HOME);
-//        getContext().startActivity(intent);
-//
-//        int pid = android.os.Process.myPid();
-//        android.os.Process.killProcess(pid);
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        getContext().startActivity(intent);
+
+        int pid = android.os.Process.myPid();
+        android.os.Process.killProcess(pid);
     }
 
     @OnClick(R.id.rlBimiiLauncher_LSD)

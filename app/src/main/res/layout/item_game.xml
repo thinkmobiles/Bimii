@@ -5,14 +5,19 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.bimii.mobile.custom.CircleImageView
-        android:id="@+id/ivGameIcon_IG"
+    <!--<com.bimii.mobile.custom.CircleImageView-->
+        <!--android:id="@+id/ivGameIcon_IG"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/columnGameWidth"-->
+        <!--android:background="@drawable/bg_item_menu"-->
+        <!--android:padding="12dp"-->
+        <!--app:border_width="3dp"-->
+        <!--app:border_color="@android:color/white"/>-->
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/columnGameWidth"
-        android:background="@drawable/bg_item_menu"
-        android:padding="12dp"
-        app:border_width="3dp"
-        app:border_color="@android:color/white"/>
+        android:layout_height="126dp"
+        android:id="@+id/ivGameIcon_IG"/>
 
     <com.bimii.mobile.custom.StrokeTextView
         android:id="@+id/tvGameTitle_IG"

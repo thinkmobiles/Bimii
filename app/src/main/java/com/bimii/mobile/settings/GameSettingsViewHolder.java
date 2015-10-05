@@ -37,7 +37,7 @@ public final class GameSettingsViewHolder {
 
     public void updateGame(Context context, Game _game){
         titleGame.setText(TextCropper.getNameIgnoreApk(_game.getFilename()));
-        versionGame.setText(String.valueOf(_game.getVersion()));
+        versionGame.setText(_game.getVersion());
         availableGame.setText(_game.getUnlock_status() ? "Yes" : "No");
         actionGame.setText(_game.actionGame.name());
         actionGame.setTag(_game.actionGame);

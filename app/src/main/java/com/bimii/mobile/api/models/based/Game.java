@@ -14,8 +14,8 @@ public final class Game {
     @DatabaseField(dataType = DataType.STRING)
     public String filename;
 
-    @DatabaseField(dataType = DataType.INTEGER)
-    public int version;
+    @DatabaseField(dataType = DataType.STRING)
+    public String version;
 
     @DatabaseField(dataType = DataType.STRING)
     public String created_at;
@@ -56,11 +56,11 @@ public final class Game {
         this.filename = filename;
     }
 
-    public int getVersion() {
+    public String getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(String version) {
         this.version = version;
     }
 

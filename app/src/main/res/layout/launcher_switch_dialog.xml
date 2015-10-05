@@ -55,12 +55,12 @@
                     android:layout_centerHorizontal="true"/>
 
                 <com.bimii.mobile.custom.StrokeTextView
-                    style="@style/SwDialogTextStyle"
+                    style="@style/SmallTextStyle"
                     android:id="@+id/tvAndroid_LSD"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ivAndroid_LSD"
-                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
                     android:text="@string/ls_android_launcher_text"/>
 
             </RelativeLayout>
@@ -82,12 +82,12 @@
                     android:layout_centerHorizontal="true"/>
 
                 <com.bimii.mobile.custom.StrokeTextView
-                    style="@style/SwDialogTextStyle"
+                    style="@style/SmallTextStyle"
                     android:id="@+id/tvBimii_LSD"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ivBimii_LSD"
-                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
                     android:text="@string/ls_bimii_launcher_text"/>
 
             </RelativeLayout>

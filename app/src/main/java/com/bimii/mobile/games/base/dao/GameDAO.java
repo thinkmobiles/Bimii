@@ -28,7 +28,7 @@ public class GameDAO extends BaseDaoImpl<Game, Integer>{
                 return new Object[]{ActionGame.DOWNLOAD, ""};
             else {
                 final Game gameInBase = results.get(0);
-                if (gameInBase.getVersion() == game.getVersion())
+                if (gameInBase.getVersion().equals(game.getVersion()))
                     return new Object[]{ActionGame.DELETE, gameInBase.packageName};
                 else return new Object[]{ActionGame.UPDATE, gameInBase.packageName};
             }

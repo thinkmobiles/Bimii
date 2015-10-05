@@ -205,11 +205,5 @@
         <item name="android:duplicateParentState">true</item>
     </style>
 
-    <style name="SwDialogTextStyle">
-        <item name="android:textColor">@color/app_text_color</item>
-        <item name="android:layout_marginTop">@dimen/wifi_switch_dialog_text_margin_top</item>
-        <item name="textStrokeColor">@color/app_night_sky_color</item>
-        <item name="textStrokeWidth">@dimen/wifi_switch_dialog_text_stroke_width</item>
-    </style>
 
 </resources>
