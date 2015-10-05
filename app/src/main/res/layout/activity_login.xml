@@ -16,36 +16,44 @@
         <TextView
             style="@style/BigTextStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="@string/settings"
-            android:textColor="@color/app_night_sky_color" />
+            android:textColor="@color/app_night_sky_color"
+            android:layout_weight="1" />
 
         <TextView
             style="@style/SmallTextStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="@string/enter_user_data_info"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="6dp"
-            android:textColor="@color/app_night_sky_color" />
+            android:textColor="@color/app_night_sky_color"
+            android:layout_weight="1" />
 
         <EditText
             android:id="@+id/etUsername_AL"
             style="@style/EditTextStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:fontFamily="sans-serif"
             android:hint="@string/username"
-            android:text="test" />
+            android:text="test"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:layout_weight="1" />
 
         <EditText
             android:id="@+id/etPassword_AL"
             style="@style/EditTextStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:fontFamily="sans-serif"
             android:hint="@string/password"
-            android:text="test" />
+            android:text="test"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/tvContinue_AL"
@@ -56,8 +64,9 @@
             android:layout_marginBottom="2dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_white_half_corners"
-            android:padding="10dp"
-            android:src="@drawable/selector_button_continue" />
+            android:padding="12dp"
+            android:src="@drawable/selector_button_continue"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <ImageView

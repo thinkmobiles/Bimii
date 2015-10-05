@@ -22,14 +22,13 @@
             android:name=".games.GameActivity"
             android:excludeFromRecents="true"
             android:clearTaskOnLaunch="true"
+            android:screenOrientation="landscape"
             android:launchMode="singleTask"
-            android:screenOrientation="sensorLandscape"
-            android:stateNotNeeded="true"
             android:windowSoftInputMode="stateUnspecified|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <!--<category android:name="android.intent.category.HOME" />-->
+                <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.OPENABLE"/>
                 <category android:name="android.intent.category.BROWSABLE"/>

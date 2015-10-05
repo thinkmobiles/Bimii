@@ -18,4 +18,10 @@ public final class CacheHelper {
         SharedPreferences shp = context.getSharedPreferences(BIMII_CACHE_SLOT, Context.MODE_PRIVATE);
         return shp.getString(key, null);
     }
+
+    public static boolean getValueBool(final Context context, final String key){
+        SharedPreferences shp = context.getSharedPreferences(BIMII_CACHE_SLOT, Context.MODE_PRIVATE);
+        return shp.getBoolean(key, true); // Default Launcher is Bimii
+    }
+
 }
