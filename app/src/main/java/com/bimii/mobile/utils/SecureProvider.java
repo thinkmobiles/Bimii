@@ -41,6 +41,17 @@ public final class SecureProvider {
         return apkFile;
     }
 
+    public static File getGameIconsDirectoryFile(final Context context, final String nameIcon) throws IOException {
+        final File moundSD = getMountAppsDirectoryFile(context);
+        if (moundSD == null) return null;
+        final File imgFile = new File(moundSD, nameIcon);
+
+        if (imgFile.exists())
+            imgFile.delete();
+
+        return imgFile;
+    }
+
 
     public static void setCurrentLauncher(Context context, boolean bimiiLauncher){
         final KeyguardManager keyguardManager   = (KeyguardManager) context.getSystemService(Activity.KEYGUARD_SERVICE);

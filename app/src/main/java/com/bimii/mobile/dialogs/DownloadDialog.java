@@ -66,7 +66,7 @@ public class DownloadDialog extends Dialog implements ProgressListener{
         ButterKnife.bind(this);
 
         nameGame.setText(TextCropper.getNameIgnoreApk(mGame.getFilename()));
-        Picasso.with(mSettingsActivity).load(mGame.getThumbnail_img_url()).into(imageGame);
+        Picasso.with(mSettingsActivity).load(mGame.getThumbnail_img_url()).placeholder(R.drawable.bg_item_menu).into(imageGame);
 
         loader = new AsyncApkLoader(mSettingsActivity, this);
         loader.execute(mGame);
@@ -85,16 +85,16 @@ public class DownloadDialog extends Dialog implements ProgressListener{
     }
 
     @Override
-    public void onResult(File file) {
+    public void onResult(File file, String fileImagePath) {
         if (file != null)
-            installApplication(file);
+            installApplication(file, fileImagePath); // TODO
         dismiss();
     }
 
-    public void installApplication(final File file){
+    public void installApplication(final File file, final String imageFilePath){
         String packageName = getPackageNameByAPK(file.getAbsolutePath(), getContext());
         if (!TextUtils.isEmpty(packageName)) {
-            ige.onStartedInstallPackage(packageName);
+            ige.onStartedInstallPackage(packageName, imageFilePath);
             Intent installIntent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
             installIntent.setData(Uri.fromFile(file));
             mSettingsActivity.startActivityForResult(installIntent, REQUEST_INSTALL_CODE);
@@ -143,6 +143,6 @@ public class DownloadDialog extends Dialog implements ProgressListener{
     }
 
     public interface InstallGameEvent{
-        void onStartedInstallPackage(String packageName);
+        void onStartedInstallPackage(String packageName, String imagePath);
     }
 }

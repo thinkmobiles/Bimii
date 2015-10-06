@@ -55,7 +55,17 @@ public class GameActivity extends Activity {
     }
 
     private void initGridGame(final List<Game> _games) {
+//        _games.add(_games.get(0));
+//        _games.add(_games.get(0));
+//        _games.add(_games.get(0));
+//        _games.add(_games.get(0));
+//        _games.add(_games.get(0));
+//        _games.add(_games.get(0));
+//        _games.add(_games.get(0));
+//        _games.add(_games.get(0));
+
         int columnCount = _games.size() < 3 ? _games.size() : 3;
+
         gridViewGames.setNumColumns(columnCount);
         gridViewGames.setAdapter(gamesAdapter = new GamesAdapter(this, _games));
     }

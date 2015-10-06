@@ -16,7 +16,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="126dp"
+        android:layout_height="@dimen/columnGameWidth"
         android:id="@+id/ivGameIcon_IG"/>
 
     <com.bimii.mobile.custom.StrokeTextView
@@ -26,6 +26,8 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:padding="10dp"
+        android:textSize="28sp"
+        android:layout_marginTop="10dp"
         android:singleLine="true"/>
 
 </LinearLayout>

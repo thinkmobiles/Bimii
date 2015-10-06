@@ -45,6 +45,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
     private GamesSettingsAdapter mGamesSettingsAdapter;
     private Game gameDownload = null;
     private String lastInstalledPackageName = "";
+    private String lastInstalledImagePath = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,8 +139,9 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
                     Loh.i("COMPLETE INSTALLING - GAME WRITED INTO BASE !!!");
                     gameDownload.actionGame = ActionGame.DELETE;
                     gameDownload.packageName = lastInstalledPackageName;
-                    BaseHelperFactory.getHelper().updateGame(gameDownload);
+                    gameDownload.thumbnail_img_url = lastInstalledImagePath;
                     mGamesSettingsAdapter.notifyDataSetChanged();
+                    BaseHelperFactory.getHelper().updateGame(gameDownload);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -155,9 +157,9 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
                 try {
                     Loh.i("COMPLETE DELETING - GAME DELETED FROM BASE !!!");
                     gameDownload.actionGame = ActionGame.DOWNLOAD;
+                    mGamesSettingsAdapter.notifyDataSetChanged();
                     BaseHelperFactory.getHelper().removeGame(gameDownload);
                     SecureProvider.getGameDirectoryFile(this, gameDownload.getFilename(), false);
-                    mGamesSettingsAdapter.notifyDataSetChanged();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -168,7 +170,8 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
     }
 
     @Override
-    public void onStartedInstallPackage(String packageName) {
+    public void onStartedInstallPackage(String packageName, String imagePath) {
         lastInstalledPackageName = packageName;
+        lastInstalledImagePath = imagePath;
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="columnGameWidth">126dp</dimen>
-    <dimen name="vh_grid_spacing">30dp</dimen>
-    <dimen name="lr_grid_padding">55dp</dimen>
-    <dimen name="tb_grid_padding">15dp</dimen>
+    <dimen name="columnGameWidth">210dp</dimen>
+    <dimen name="vh_grid_spacing">50dp</dimen>
+    <dimen name="lr_grid_padding">85dp</dimen>
+    <dimen name="tb_grid_padding">25dp</dimen>
 </resources>
