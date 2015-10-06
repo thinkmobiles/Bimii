@@ -1,6 +1,8 @@
 package com.bimii.mobile;
 
+import android.app.Activity;
 import android.app.Application;
+import android.app.KeyguardManager;
 import android.util.Log;
 
 import com.bimii.mobile.cache.CacheConstants;
@@ -23,9 +25,17 @@ public class BimiiApplication extends Application {
     }
 
     private void checkLauncher(){
+        final KeyguardManager keyguardManager   = (KeyguardManager)getSystemService(Activity.KEYGUARD_SERVICE);
+        final KeyguardManager.KeyguardLock lock = keyguardManager.newKeyguardLock(KEYGUARD_SERVICE);
+
         boolean isBimiiLauncherNow = CacheHelper.getValueBool(getApplicationContext(), CacheConstants.CACHE_LAUNCHER_BIMII);
-        if (isBimiiLauncherNow)
+        if (isBimiiLauncherNow) {
             KioskMode.on();
-        else KioskMode.off();
+            lock.disableKeyguard();
+        }
+        else {
+            KioskMode.off();
+            lock.reenableKeyguard();
+        }
     }
 }

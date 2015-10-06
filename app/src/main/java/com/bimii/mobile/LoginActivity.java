@@ -91,6 +91,9 @@ public class LoginActivity extends Activity implements Callback<String>{
     public void failure(RetrofitError error) {
         pdProgressView.dismiss();
         Loh.e("Error GET_TOKEN: " + error.getMessage());
+
+        // TODO mock
+        openSettingsScreen();
     }
 
     private void openSettingsScreen(){
