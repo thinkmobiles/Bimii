@@ -87,7 +87,7 @@ public class DownloadDialog extends Dialog implements ProgressListener{
     @Override
     public void onResult(File file, String fileImagePath) {
         if (file != null)
-            installApplication(file, fileImagePath); // TODO
+            installApplication(file, fileImagePath);
         dismiss();
     }
 
