@@ -15,8 +15,9 @@
         <TextView
             style="@style/SmallTextStyle"
             android:textColor="@color/app_button_text_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:textSize="25sp"
             android:text="@string/installingen"
             android:background="@drawable/bg_instellingen" />
 
@@ -32,6 +33,7 @@
                 android:id="@+id/btnWiFi_AS"
                 android:text="@string/wi_fi"
                 android:layout_margin="10dp"
+                android:textSize="23sp"
                 android:textColor="@drawable/selector_bimii_btn_text"
                 android:background="@drawable/selector_bimii_btn_bg"/>
 
@@ -41,6 +43,7 @@
                 android:id="@+id/btnBluetooth_AS"
                 android:text="@string/bluetooth"
                 android:layout_margin="10dp"
+                android:textSize="23sp"
                 android:textColor="@drawable/selector_bimii_btn_text"
                 android:background="@drawable/selector_bimii_btn_bg"/>
 
@@ -50,6 +53,7 @@
                 android:id="@+id/btnLauncherSwitch_AS"
                 android:text="@string/launcher_switch"
                 android:layout_margin="10dp"
+                android:textSize="23sp"
                 android:textColor="@drawable/selector_bimii_btn_text"
                 android:background="@drawable/selector_bimii_btn_bg"/>
 
@@ -61,8 +65,10 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="5"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/bg_table_shape"
         android:orientation="vertical"
         android:padding="3dp">

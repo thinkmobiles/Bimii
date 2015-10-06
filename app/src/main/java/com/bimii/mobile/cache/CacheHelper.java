@@ -14,6 +14,13 @@ public final class CacheHelper {
         return shpEditor.commit();
     }
 
+    public static boolean saveValueBool(final Context context, final String key, final boolean value){
+        SharedPreferences shp = context.getSharedPreferences(BIMII_CACHE_SLOT, Context.MODE_PRIVATE);
+        SharedPreferences.Editor shpEditor = shp.edit();
+        shpEditor.putBoolean(key, value);
+        return shpEditor.commit();
+    }
+
     public static String getValue(final Context context, final String key){
         SharedPreferences shp = context.getSharedPreferences(BIMII_CACHE_SLOT, Context.MODE_PRIVATE);
         return shp.getString(key, null);
@@ -21,7 +28,7 @@ public final class CacheHelper {
 
     public static boolean getValueBool(final Context context, final String key){
         SharedPreferences shp = context.getSharedPreferences(BIMII_CACHE_SLOT, Context.MODE_PRIVATE);
-        return shp.getBoolean(key, true); // Default Launcher is Bimii
+        return shp.getBoolean(key, false); // Default Launcher "Android" <With UI components>
     }
 
 }

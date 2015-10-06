@@ -1,7 +1,12 @@
 package com.bimii.mobile.utils;
 
+import android.app.Activity;
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.provider.Settings.Secure;
+
+import com.bimii.mobile.cache.CacheConstants;
+import com.bimii.mobile.cache.CacheHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +39,21 @@ public final class SecureProvider {
             apkFile.createNewFile();
 
         return apkFile;
+    }
+
+
+    public static void setCurrentLauncher(Context context, boolean bimiiLauncher){
+        final KeyguardManager keyguardManager   = (KeyguardManager) context.getSystemService(Activity.KEYGUARD_SERVICE);
+        final KeyguardManager.KeyguardLock lock = keyguardManager.newKeyguardLock(Context.KEYGUARD_SERVICE);
+
+        if (bimiiLauncher) {
+            KioskMode.on();
+            lock.disableKeyguard();
+        }
+        else {
+            KioskMode.off();
+            lock.reenableKeyguard();
+        }
     }
 
 }

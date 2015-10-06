@@ -38,9 +38,9 @@
             android:layout_height="0dp"
             android:fontFamily="sans-serif"
             android:hint="@string/username"
-            android:text="test"
+            android:text="ramon@mediaheads.nl"
             android:imeOptions="actionNext"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:layout_weight="1" />
 
         <EditText
