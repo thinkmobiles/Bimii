@@ -46,8 +46,8 @@ public class LauncherSwitchDialog extends Dialog {
             intent.addCategory(Intent.CATEGORY_HOME);
             getContext().startActivity(intent);
 
-//            int pid = android.os.Process.myPid();
-//            android.os.Process.killProcess(pid);
+            int pid = android.os.Process.myPid();
+            android.os.Process.killProcess(pid);
         } else dismiss();
     }
 
