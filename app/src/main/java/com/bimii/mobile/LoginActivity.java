@@ -12,6 +12,7 @@ import com.bimii.mobile.api.models.User;
 import com.bimii.mobile.cache.CacheConstants;
 import com.bimii.mobile.cache.CacheHelper;
 import com.bimii.mobile.dialogs.ProgressDialog;
+import com.bimii.mobile.dialogs.wifi.WifiDialog;
 import com.bimii.mobile.utils.Loh;
 import com.bimii.mobile.utils.SecureProvider;
 
@@ -57,6 +58,10 @@ public class LoginActivity extends BaseActivity implements Callback<String>{
 
     @OnClick(R.id.tvContinue_AL)
     protected void clickContinue(View viewClicked){
+        if(new WifiDialog(this).getCurrentSsid(this) == null) {
+            Toast.makeText(this, "Bimii application require internet connection\nPlease, turn on wi-fi and try again", Toast.LENGTH_LONG).show();
+            return;
+        }
         final String username = mInputUsername.getText().toString();
         final String password = mInputPassword.getText().toString();
         if (TextUtils.isEmpty(username)){
@@ -79,7 +84,7 @@ public class LoginActivity extends BaseActivity implements Callback<String>{
 
     @OnClick(R.id.ivWifiButton_AL)
     protected void clickWifiButton(){
-
+        new WifiDialog(this).show();
     }
 
     @Override

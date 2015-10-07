@@ -126,10 +126,11 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
     protected boolean forgetWifi(View view) {
         final String ssid = ((TextView) view.findViewById(R.id.tvNetworkName_WLI)).getText().toString();
         final String state = ((TextView) view.findViewById(R.id.tvNetworkStatus_WLI)).getText().toString();
-        if(mSharedPreferences.contains(ssid)) new ForgetWifiNetworkDialog(mCtx, this, ssid).show();
-        else if(state.equalsIgnoreCase(NetworkConstants.CONNECTED)) {
-            mWifiManager.disconnect();
-            mWifiListAdapter.notifyDataSetChanged();
+//        if(mSharedPreferences.contains(ssid)) new ForgetWifiNetworkDialog(mCtx, this, ssid).show();
+        if(state.equalsIgnoreCase(NetworkConstants.CONNECTED)) {
+//            mWifiManager.disconnect();
+//            mWifiListAdapter.notifyDataSetChanged();
+            new ForgetWifiNetworkDialog(mCtx, this, ssid).show();
         }
         return true;
     }
@@ -166,7 +167,7 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
     }
 
     /*Return current wifi network name*/
-    private String getCurrentSsid(Context _context) {
+    public String getCurrentSsid(Context _context) {
         String ssid = null;
         ConnectivityManager connManager = (ConnectivityManager) _context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
