@@ -77,6 +77,11 @@ public class LoginActivity extends BaseActivity implements Callback<String>{
         finish();
     }
 
+    @OnClick(R.id.ivWifiButton_AL)
+    protected void clickWifiButton(){
+
+    }
+
     @Override
     public void success(String token, Response response) {
         Loh.d("Token: " + token);
@@ -94,8 +99,6 @@ public class LoginActivity extends BaseActivity implements Callback<String>{
 
     private void openSettingsScreen(){
         startActivity(new Intent(this, SettingsActivity.class));
-        //TODO fix animation
-//        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
         finish();
     }
 }

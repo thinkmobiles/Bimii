@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.bimii.mobile.BaseActivity;
 import com.bimii.mobile.LoginActivity;
 import com.bimii.mobile.R;
 import com.bimii.mobile.api.models.based.Game;
+import com.bimii.mobile.dialogs.DownloadDialog;
 import com.bimii.mobile.games.base.BaseHelperFactory;
 import com.bimii.mobile.utils.FontHelper;
 import com.bimii.mobile.utils.Loh;
@@ -26,6 +28,10 @@ public class GameActivity extends BaseActivity {
 
     @Bind(R.id.gvGames_AG)
     protected GridView gridViewGames;
+
+    @Bind(R.id.stvEmptyGames_AG)
+    protected TextView epmtyGames;
+
     private GamesAdapter gamesAdapter;
 
     @Override
@@ -55,23 +61,35 @@ public class GameActivity extends BaseActivity {
     }
 
     private void initGridGame(final List<Game> _games) {
-        int columnCount = _games.size() < 3 ? _games.size() : 3;
+        if (_games == null || _games.size() == 0)
+            epmtyGames.setVisibility(View.VISIBLE);
+        else {
+            epmtyGames.setVisibility(View.GONE);
 
-        gridViewGames.setNumColumns(columnCount);
-        gridViewGames.setAdapter(gamesAdapter = new GamesAdapter(this, _games));
+            int columnCount = _games.size() < 3 ? _games.size() : 3;
+
+            gridViewGames.setNumColumns(columnCount);
+            gridViewGames.setAdapter(gamesAdapter = new GamesAdapter(this, _games));
+        }
     }
 
     private void loadGames() {
         try {
-            initGridGame(BaseHelperFactory.getHelper().getGameDAO().getAllGames());
+            initGridGame(removeDeletingApps(BaseHelperFactory.getHelper().getGameDAO().getAllGames()));
         } catch (SQLException e) {
             Loh.e("Error when reading games from base: " + e.getMessage());
         }
     }
 
+    private List<Game> removeDeletingApps(List<Game> games) throws SQLException {
+        for(Game game: games){
+            if (!DownloadDialog.isContainsGameOnDevice(getApplicationContext(), game.getPackageName()))
+                BaseHelperFactory.getHelper().removeGame(game);
+        }
+        return BaseHelperFactory.getHelper().getGameDAO().getAllGames();
+    }
+
     private void openLogin() {
         startActivity(new Intent(this, LoginActivity.class));
-        //TODO fix animation
-//        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }

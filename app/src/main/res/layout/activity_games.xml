@@ -33,6 +33,18 @@
         android:layout_height="match_parent"
         android:layout_below="@id/rlHeaderGames_AG">
 
+        <com.bimii.mobile.custom.StrokeTextView
+            android:id="@+id/stvEmptyGames_AG"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            style="@style/SmallTextStyle"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:text="@string/not_have_games"
+            />
+
         <GridView
             android:id="@+id/gvGames_AG"
             android:layout_width="match_parent"
