@@ -6,26 +6,26 @@
                 android:gravity="center">
 
     <RelativeLayout
-        style="@style/SettingsDialogStyle"
         android:id="@+id/rlContainer_WPD"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
-        android:layout_centerVertical="true"
+        style="@style/SettingsDialogStyle"
+        android:layout_width="380dp"
+        android:layout_height="350dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true">
 
 
         <TextView
-            style="@style/WfPassDialogNetworkNameStyle"
             android:id="@+id/tvSSID_WPD"
+            style="@style/WfPassDialogNetworkNameStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"/>
 
         <TextView
-            style="@style/WfPassDialogTvEnterPassStyle"
             android:id="@+id/tvEnterPassword_WPD"
+            style="@style/WfPassDialogTvEnterPassStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/etPass_WPD"
@@ -33,43 +33,47 @@
             android:text="@string/wifi_pass_dialog_enter_password"/>
 
         <EditText
-            style="@style/WfPassDialogEtStyle"
             android:id="@+id/etPass_WPD"
+            style="@style/WfPassDialogEtStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_height="50dp"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:hint="@string/wifi_pass_dialog_et_hint"/>
 
         <CheckBox
-            style="@style/WfPassDialogCbStyle"
             android:id="@+id/cbSavePass_WPD"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/etPass_WPD"
+            style="@style/WfPassDialogCbStyle"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
             android:layout_alignLeft="@id/etPass_WPD"
             android:layout_alignStart="@id/etPass_WPD"
+            android:layout_below="@id/etPass_WPD"
             android:text="@string/wifi_pass_dialog_cb_text"/>
 
-        <Button
-            style="@style/WfPassDialogBtnStyle"
-            android:id="@+id/btnCancel_WPD"
-            android:layout_width="65dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/wifi_pass_dialog_btn_cancel_text"/>
+            android:orientation="horizontal">
 
-        <Button
-            style="@style/WfPassDialogBtnStyle"
-            android:id="@+id/btnConnect_WPD"
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:layout_alignTop="@+id/btnCancel_WPD"
-            android:layout_alignRight="@+id/etPass_WPD"
-            android:layout_alignEnd="@+id/etPass_WPD"
-            android:text="@string/wifi_pass_dialog_btn_connect_text"/>
+            <Button
+                android:id="@+id/btnCancel_WPD"
+                style="@style/WfPassDialogBtnStyle"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/wifi_pass_dialog_btn_cancel_text"/>
+
+            <Button
+                android:id="@+id/btnConnect_WPD"
+                style="@style/WfPassDialogBtnStyle"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/wifi_pass_dialog_btn_connect_text"
+                android:visibility="gone"/>
+        </LinearLayout>
+
 
     </RelativeLayout>
 

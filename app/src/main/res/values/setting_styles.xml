@@ -9,10 +9,10 @@
         <item name="android:background">@drawable/bg_downloading_game</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:minWidth">400dp</item>
-        <item name="android:paddingBottom">10dp</item>
-        <item name="android:paddingLeft">3dp</item>
-        <item name="android:paddingRight">3dp</item>
-        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">30dp</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingTop">30dp</item>
     </style>
 
     <style name="SettingsHeaderStyle" parent="OutlineTextStyle">
@@ -21,8 +21,6 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">25dp</item>
         <item name="android:paddingRight">6dp</item>
-        <item name="android:paddingTop">6dp</item>
-        <item name="android:paddingBottom">6dp</item>
         <item name="android:textSize">25sp</item>
     </style>
 
@@ -31,24 +29,28 @@
         <item name="android:visibility">invisible</item>
         <item name="android:indeterminate">true</item>
         <item name="android:indeterminateDrawable">@drawable/progress_weel</item>
-        <item name="android:layout_marginRight">23dp</item>
-        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+
     </style>
 
     <style name="SettingsStatusStyle">
         <item name="android:textColor">@color/app_night_sky_color</item>
         <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="SettingsButtonStyle">
         <item name="android:textColor">@drawable/selector_bimii_btn_text</item>
         <item name="android:background">@drawable/selector_bimii_btn_bg</item>
+        <item name="android:textSize">25sp</item>
     </style>
 
     <style name="SwitchTextAppearance" parent="@android:style/TextAppearance.Holo.Small">
         <item name="android:textColor">@color/popup_bg_color</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">normal</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="SettingsSwitchStyle">
@@ -60,13 +62,13 @@
         <item name="android:textColor">@color/popup_bg_color</item>
         <item name="android:textColorHint">@color/popup_bg_color</item>
         <item name="android:checked">false</item>
-        <item name="android:layout_marginRight">18dp</item>
-        <item name="android:layout_marginEnd">18dp</item>
+        <item name="android:layout_marginRight">35dp</item>
+        <item name="android:layout_marginEnd">35dp</item>
 
     </style>
 
     <style name="SettingsCheckboxStyle">
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">normal</item>
         <item name="android:textColor">@color/download_text_color_progress</item>
@@ -81,8 +83,7 @@
         <item name="android:divider">@color/table_divider_color</item>
         <item name="android:dividerHeight">1dp</item>
         <item name="android:layout_margin">5dp</item>
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:layout_marginTop">26dp</item>
+        <item name="android:paddingTop">40dp</item>
     </style>
 
     <!--Bluetooth list item styles-->
@@ -90,38 +91,44 @@
         <item name="android:src">@drawable/icn_bl</item>
         <item name="android:paddingTop">7dp</item>
         <item name="android:paddingBottom">7dp</item>
-        <item name="android:layout_marginLeft">20dp</item>
-        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">20dp</item>
     </style>
 
     <style name="BtDeviceNameStyle">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:textColor">@color/app_night_sky_color</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">normal</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginLeft">18dp</item>
+        <item name="android:layout_marginBottom">-9dp</item>
+        <item name="android:layout_marginTop">-5dp</item>
     </style>
 
     <style name="BtDeviceStatusStyle">
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">normal</item>
         <item name="android:textColor">@color/app_button_text_color_pressed</item>
-        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginLeft">19dp</item>
         <item name="android:visibility">gone</item>
+        <item name="android:layout_marginTop">-5dp</item>
+        <item name="android:layout_marginBottom">-9dp</item>
     </style>
 
     <!--Bluetooth unpair dialog styles-->
     <style name="BtUnpairMsgStyle">
         <item name="android:textColor">@color/app_night_sky_color</item>
-        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:textSize">25sp</item>
     </style>
 
     <style name="BtUnpaidButtonStyle">
         <item name="android:textColor">@drawable/selector_bimii_btn_text</item>
         <item name="android:background">@drawable/selector_bimii_btn_bg</item>
         <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <!--Wifi list item styles-->
@@ -183,14 +190,16 @@
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">normal</item>
         <item name="android:textColor">@color/download_text_color_progress</item>
-        <item name="android:button">@drawable/selector_checkbox</item>
+        <item name="android:button">@drawable/selector_checkbox_small</item>
         <item name="android:checked">false</item>
     </style>
 
     <style name="WfPassDialogBtnStyle">
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@drawable/selector_bimii_btn_text</item>
         <item name="android:background">@drawable/selector_bimii_btn_bg</item>
         <item name="android:layout_marginBottom">@dimen/wifi_pass_dialog_btn_margin_bottom</item>
+        <item name="android:layout_margin">10dp</item>
     </style>
 
     <!--Switch launcher dialog styles-->

@@ -8,8 +8,8 @@
     <ImageView
         style="@style/CloseButtonStyle"
         android:id="@+id/ivCancel_WD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_above="@+id/rlContainer_WD"
         android:layout_toRightOf="@+id/rlContainer_WD"
         android:layout_toEndOf="@+id/rlContainer_WD"/>
@@ -17,8 +17,8 @@
     <RelativeLayout
         style="@style/SettingsDialogStyle"
         android:id="@+id/rlContainer_WD"
-        android:layout_width="400dp"
-        android:layout_height="300dp"
+        android:layout_width="800dp"
+        android:layout_height="600dp"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -26,7 +26,7 @@
         <TextView
             style="@style/SettingsHeaderStyle"
             android:id="@+id/tvWifiLabel_WD"
-            android:layout_width="130dp"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:text="@string/wifi_label"/>
@@ -47,9 +47,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/tvWifiLabel_WD"
-            android:layout_alignBottom="@id/tvWifiLabel_WD"
             android:layout_centerHorizontal="true"
-            android:text="@string/wifi_status_text"/>
+            android:layout_toRightOf="@id/tvWifiLabel_WD"
+            android:text="@string/wifi_status_turn_on"/>
 
         <ListView
             style="@style/SettingsListStyle"
@@ -63,11 +63,12 @@
         <ProgressBar
             style="@style/SettingProgressBarStyle"
             android:id="@+id/pbStatus_WD"
-            android:layout_width="35dp"
-            android:layout_height="38dp"
-            android:layout_above="@id/lvNetworks_WD"
-            android:layout_alignRight="@id/tvWifiLabel_WD"
-            android:layout_alignEnd="@id/tvWifiLabel_WD"/>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/tvWifiLabel_WD"
+            android:layout_alignLeft="@+id/lvNetworks_WD"
+            android:layout_alignStart="@+id/lvNetworks_WD"
+            android:layout_marginLeft="110dp"/>
 
     </RelativeLayout>
 

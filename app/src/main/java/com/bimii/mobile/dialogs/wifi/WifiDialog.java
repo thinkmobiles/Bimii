@@ -12,6 +12,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -124,13 +125,20 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
     @OnItemLongClick(R.id.lvNetworks_WD)
     protected boolean forgetWifi(View view) {
         final String ssid = ((TextView) view.findViewById(R.id.tvNetworkName_WLI)).getText().toString();
+        final String state = ((TextView) view.findViewById(R.id.tvNetworkStatus_WLI)).getText().toString();
         if(mSharedPreferences.contains(ssid)) new ForgetWifiNetworkDialog(mCtx, this, ssid).show();
+        else if(state.equalsIgnoreCase(NetworkConstants.CONNECTED)) {
+            mWifiManager.disconnect();
+            mWifiListAdapter.notifyDataSetChanged();
+        }
         return true;
     }
 
     /*Save network password to shared preferences*/
     @Override
     public void savePassword(String _ssid, String _pass) {
+        mEditor = null;
+        mEditor = mSharedPreferences.edit();
         mEditor.putString(_ssid, _pass);
     }
 
@@ -185,6 +193,7 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
     public void savePass(boolean _isSave) {
         if(_isSave) {
             mEditor.commit();
+            mEditor = mCtx.getSharedPreferences(NetworkConstants.SP_NAME, Context.MODE_PRIVATE).edit();
         } else {
             mEditor = null;
             mEditor = mSharedPreferences.edit();

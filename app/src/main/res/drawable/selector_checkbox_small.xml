@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:left="@dimen/cb_bg_left_checked_small"
+                  android:right="@dimen/cb_bg_right_checked_small"
+                  android:top="@dimen/cb_bg_top_checked_small"
+                  android:bottom="@dimen/cb_bg_bottom_checked_small">
+                <shape android:shape="rectangle">
+                    <size android:height="@dimen/cb_bg_shape_height_checked_small"
+                          android:width="@dimen/cb_bg_shape_width_checked_small"/>
+                    <stroke android:color="@color/app_night_sky_color"
+                            android:width="@dimen/cb_bg_shape_stroke_width_checked_small"/>
+                    <corners android:radius="@dimen/cb_bg_shape_corners_radius_checked_small"/>
+                </shape>
+            </item>
+            <item android:drawable="@drawable/icn_choose_small"
+                  android:gravity="center|bottom"
+                  android:top="@dimen/cb_item_top_checked_small"
+                  android:bottom="@dimen/cb_item_bottom_checked_small"
+                  android:right="@dimen/cb_item_right_checked_small"
+                  android:left="@dimen/cb_item_left_checked_small"/>
+        </layer-list>
+    </item>
+
+    <item android:left="@dimen/cb_bg_left_unchecked_small"
+          android:right="@dimen/cb_bg_right_unchecked_small"
+          android:top="@dimen/cb_bg_top_unchecked_small"
+          android:bottom="@dimen/cb_bg_bottom_unchecked_small">
+        <layer-list>
+            <item android:left="@dimen/cb_shape_left_unchecked_small"
+                  android:right="@dimen/cb_shape_right_unchecked_small"
+                  android:top="@dimen/cb_shape_top_unchecked_small"
+                  android:bottom="@dimen/cb_shape_bottom_unchecked_small">
+                <shape android:shape="rectangle">
+                    <size android:height="@dimen/cb_shape_height_unchecked_small"
+                          android:width="@dimen/cb_shape_width_unchecked_small"/>
+                    <stroke android:color="@color/app_night_sky_color"
+                            android:width="@dimen/cb_shape_stroke_width_unchecked_small"/>
+                    <corners android:radius="@dimen/cb_shape_corners_radius_unchecked_small"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

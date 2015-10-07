@@ -76,7 +76,7 @@ public class WifiPasswordDialog extends Dialog implements TextWatcher {
         if (_charSequence.length() >= NetworkConstants.MIN_PASS_LENGTH)
             btnConnect_WPD.setVisibility(View.VISIBLE);
         else
-            btnConnect_WPD.setVisibility(View.INVISIBLE);
+            btnConnect_WPD.setVisibility(View.GONE);
     }
 
     @Override

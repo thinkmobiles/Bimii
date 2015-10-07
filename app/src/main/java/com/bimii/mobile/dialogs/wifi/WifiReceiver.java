@@ -33,7 +33,8 @@ public class WifiReceiver extends BroadcastReceiver {
                 SupplicantState supl_state=(_intent.getParcelableExtra(WifiManager.EXTRA_NEW_STATE));
                 switch (supl_state) {
                     case SCANNING:      // scanning
-                        mCallback.updateWifiState(_context.getResources().getString(R.string.wifi_status_scanning), true);
+//                        mCallback.updateWifiState(_context.getResources().getString(R.string.wifi_status_scanning), true);
+                        mCallback.updateWifiState(_context.getResources().getString(R.string.wifi_status_connecting), true);
                         break;
                     case ASSOCIATING:   // connecting
                         mCallback.updateWifiState(_context.getResources().getString(R.string.wifi_status_connecting), true);

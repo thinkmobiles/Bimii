@@ -10,7 +10,6 @@
 
     <!--WIFI Strings-->
     <string name="wifi_label">Wi - Fi</string>
-    <string name="wifi_status_text">Choose network...</string>
     <string name="wifi_status_turn_on">Turn on Wi-Fi</string>
     <string name="wifi_status_scanning">Scanning...</string>
     <string name="wifi_status_connecting">Connecting...</string>
@@ -44,18 +43,18 @@
 
 
     <!--WIFI Dimensions-->
-    <dimen name="wifi_network_name_text_size">18sp</dimen>
+    <dimen name="wifi_network_name_text_size">25sp</dimen>
     <dimen name="wifi_network_name_margin_left">15dp</dimen>
-    <dimen name="wifi_network_status_text_size">11sp</dimen>
+    <dimen name="wifi_network_status_text_size">16sp</dimen>
     <dimen name="wifi_network_status_margin_left">15dp</dimen>
     <dimen name="wifi_sygnal_margin_left">19dp</dimen>
     <dimen name="wifi_sygnal_margin_right">19dp</dimen>
-    <dimen name="wifi_pass_dialog_network_name_text_size">25sp</dimen>
+    <dimen name="wifi_pass_dialog_network_name_text_size">33sp</dimen>
     <dimen name="wifi_pass_dialog_network_name_padding">12dp</dimen>
-    <dimen name="wifi_pass_dialog_tv_enter_pass_text_size">17sp</dimen>
+    <dimen name="wifi_pass_dialog_tv_enter_pass_text_size">23sp</dimen>
     <dimen name="wifi_pass_dialog_tv_enter_pass_margin">7dp</dimen>
-    <dimen name="wifi_pass_dialog_et_min_width">230dp</dimen>
-    <dimen name="wifi_pass_dialog_et_max_width">230dp</dimen>
+    <dimen name="wifi_pass_dialog_et_min_width">260dp</dimen>
+    <dimen name="wifi_pass_dialog_et_max_width">260dp</dimen>
     <dimen name="wifi_pass_dialog_et_padding_bottom">6dp</dimen>
     <dimen name="wifi_pass_dialog_et_padding_top">6dp</dimen>
     <dimen name="wifi_pass_dialog_et_padding_left">12dp</dimen>
@@ -65,7 +64,7 @@
     <dimen name="wifi_pass_dialog_et_margin_left">20dp</dimen>
     <dimen name="wifi_pass_dialog_et_margin_right">20dp</dimen>
     <dimen name="wifi_pass_dialog_et_text_size">18sp</dimen>
-    <dimen name="wifi_pass_dialog_checkbox_text_size">13sp</dimen>
+    <dimen name="wifi_pass_dialog_checkbox_text_size">15sp</dimen>
     <dimen name="wifi_pass_dialog_btn_margin_bottom">10dp</dimen>
     <dimen name="wifi_switch_dialog_image_close_margin_left">18dp</dimen>
     <dimen name="wifi_switch_dialog_image_close_margin_right">18dp</dimen>
@@ -74,43 +73,68 @@
     <dimen name="wifi_switch_dialog_text_stroke_width">3dp</dimen>
 
     <!--Custom drawable dimensions-->
-    <dimen name="round_close_btn_stroke_width">1dp</dimen>
-    <dimen name="round_close_btn_top">12dp</dimen>
-    <dimen name="round_close_btn_bottom">12dp</dimen>
-    <dimen name="round_close_btn_left">12dp</dimen>
-    <dimen name="round_close_btn_right">12dp</dimen>
+    <dimen name="round_close_btn_stroke_width">2dp</dimen>
+    <dimen name="round_close_btn_top">15dp</dimen>
+    <dimen name="round_close_btn_bottom">15dp</dimen>
+    <dimen name="round_close_btn_left">15dp</dimen>
+    <dimen name="round_close_btn_right">15dp</dimen>
 
-    <dimen name="cb_bg_top_checked">5dp</dimen>
-    <dimen name="cb_bg_bottom_checked">5dp</dimen>
-    <dimen name="cb_bg_left_checked">5dp</dimen>
-    <dimen name="cb_bg_right_checked">5dp</dimen>
-    <dimen name="cb_bg_shape_width_checked">20dp</dimen>
-    <dimen name="cb_bg_shape_height_checked">20dp</dimen>
-    <dimen name="cb_bg_shape_stroke_width_checked">2dp</dimen>
-    <dimen name="cb_bg_shape_corners_radius_checked">4dp</dimen>
-    <dimen name="cb_item_top_checked">4dp</dimen>
-    <dimen name="cb_item_bottom_checked">8dp</dimen>
-    <dimen name="cb_item_right_checked">5dp</dimen>
-    <dimen name="cb_item_left_checked">2dp</dimen>
-    <dimen name="cb_bg_top_unchecked">5dp</dimen>
-    <dimen name="cb_bg_bottom_unchecked">5dp</dimen>
-    <dimen name="cb_bg_left_unchecked">5dp</dimen>
-    <dimen name="cb_bg_right_unchecked">5dp</dimen>
-    <dimen name="cb_shape_top_unchecked">5dp</dimen>
-    <dimen name="cb_shape_bottom_unchecked">5dp</dimen>
-    <dimen name="cb_shape_right_unchecked">5dp</dimen>
-    <dimen name="cb_shape_left_unchecked">5dp</dimen>
-    <dimen name="cb_shape_width_unchecked">20dp</dimen>
-    <dimen name="cb_shape_height_unchecked">20dp</dimen>
-    <dimen name="cb_shape_stroke_width_unchecked">2dp</dimen>
-    <dimen name="cb_shape_corners_radius_unchecked">4dp</dimen>
+    <dimen name="cb_bg_top_checked">10dp</dimen>
+    <dimen name="cb_bg_bottom_checked">10dp</dimen>
+    <dimen name="cb_bg_left_checked">10dp</dimen>
+    <dimen name="cb_bg_right_checked">10dp</dimen>
+    <dimen name="cb_bg_shape_width_checked">40dp</dimen>
+    <dimen name="cb_bg_shape_height_checked">40dp</dimen>
+    <dimen name="cb_bg_shape_stroke_width_checked">4dp</dimen>
+    <dimen name="cb_bg_shape_corners_radius_checked">8dp</dimen>
+    <dimen name="cb_item_top_checked">8dp</dimen>
+    <dimen name="cb_item_bottom_checked">16dp</dimen>
+    <dimen name="cb_item_right_checked">10dp</dimen>
+    <dimen name="cb_item_left_checked">4dp</dimen>
+    <dimen name="cb_bg_top_unchecked">10dp</dimen>
+    <dimen name="cb_bg_bottom_unchecked">10dp</dimen>
+    <dimen name="cb_bg_left_unchecked">10dp</dimen>
+    <dimen name="cb_bg_right_unchecked">10dp</dimen>
+    <dimen name="cb_shape_top_unchecked">10dp</dimen>
+    <dimen name="cb_shape_bottom_unchecked">10dp</dimen>
+    <dimen name="cb_shape_right_unchecked">10dp</dimen>
+    <dimen name="cb_shape_left_unchecked">10dp</dimen>
+    <dimen name="cb_shape_width_unchecked">40dp</dimen>
+    <dimen name="cb_shape_height_unchecked">40dp</dimen>
+    <dimen name="cb_shape_stroke_width_unchecked">4dp</dimen>
+    <dimen name="cb_shape_corners_radius_unchecked">8dp</dimen>
 
-    <dimen name="sw_thumb_width">35dp</dimen>
-    <dimen name="sw_thumb_height">27dp</dimen>
-    <dimen name="sw_thumb_corners_radius">12dp</dimen>
-    <dimen name="sw_track_width">50dp</dimen>
-    <dimen name="sw_track_height">30dp</dimen>
-    <dimen name="sw_track_corners_radius">12dp</dimen>
-    <dimen name="sw_track_stroke_width">4dp</dimen>
+    <dimen name="cb_bg_top_checked_small">7dp</dimen>
+    <dimen name="cb_bg_bottom_checked_small">7dp</dimen>
+    <dimen name="cb_bg_left_checked_small">7dp</dimen>
+    <dimen name="cb_bg_right_checked_small">7dp</dimen>
+    <dimen name="cb_bg_shape_width_checked_small">30dp</dimen>
+    <dimen name="cb_bg_shape_height_checked_small">30dp</dimen>
+    <dimen name="cb_bg_shape_stroke_width_checked_small">3dp</dimen>
+    <dimen name="cb_bg_shape_corners_radius_checked_small">6dp</dimen>
+    <dimen name="cb_item_top_checked_small">6dp</dimen>
+    <dimen name="cb_item_bottom_checked_small">12dp</dimen>
+    <dimen name="cb_item_right_checked_small">7dp</dimen>
+    <dimen name="cb_item_left_checked_small">3dp</dimen>
+    <dimen name="cb_bg_top_unchecked_small">7dp</dimen>
+    <dimen name="cb_bg_bottom_unchecked_small">7dp</dimen>
+    <dimen name="cb_bg_left_unchecked_small">7dp</dimen>
+    <dimen name="cb_bg_right_unchecked_small">7dp</dimen>
+    <dimen name="cb_shape_top_unchecked_small">7dp</dimen>
+    <dimen name="cb_shape_bottom_unchecked_small">7dp</dimen>
+    <dimen name="cb_shape_right_unchecked_small">7dp</dimen>
+    <dimen name="cb_shape_left_unchecked_small">7dp</dimen>
+    <dimen name="cb_shape_width_unchecked_small">30dp</dimen>
+    <dimen name="cb_shape_height_unchecked_small">30dp</dimen>
+    <dimen name="cb_shape_stroke_width_unchecked_small">3dp</dimen>
+    <dimen name="cb_shape_corners_radius_unchecked_small">6dp</dimen>
+
+    <dimen name="sw_thumb_width">130dp</dimen>
+    <dimen name="sw_thumb_height">55dp</dimen>
+    <dimen name="sw_thumb_corners_radius">23dp</dimen>
+    <dimen name="sw_track_width">190dp</dimen>
+    <dimen name="sw_track_height">55dp</dimen>
+    <dimen name="sw_track_corners_radius">23dp</dimen>
+    <dimen name="sw_track_stroke_width">7dp</dimen>
 
 </resources>

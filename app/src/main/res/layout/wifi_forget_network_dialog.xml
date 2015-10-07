@@ -8,8 +8,8 @@
     <LinearLayout
         style="@style/SettingsDialogStyle"
         android:id="@+id/rlContainer_WFND"
-        android:layout_width="300dp"
-        android:layout_height="120dp"
+        android:layout_width="500dp"
+        android:layout_height="200dp"
         android:orientation="vertical"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
