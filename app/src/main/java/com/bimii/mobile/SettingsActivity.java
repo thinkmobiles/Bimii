@@ -140,8 +140,8 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
                     gameDownload.actionGame = ActionGame.DELETE;
                     gameDownload.packageName = lastInstalledPackageName;
                     gameDownload.thumbnail_img_url = lastInstalledImagePath;
-                    mGamesSettingsAdapter.notifyDataSetChanged();
                     BaseHelperFactory.getHelper().updateGame(gameDownload);
+                    mGamesSettingsAdapter.notifyDataSetChanged();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -157,9 +157,9 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
                 try {
                     Loh.i("COMPLETE DELETING - GAME DELETED FROM BASE !!!");
                     gameDownload.actionGame = ActionGame.DOWNLOAD;
-                    mGamesSettingsAdapter.notifyDataSetChanged();
                     BaseHelperFactory.getHelper().removeGame(gameDownload);
                     SecureProvider.getGameDirectoryFile(this, gameDownload.getFilename(), false);
+                    mGamesSettingsAdapter.notifyDataSetChanged();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

@@ -115,9 +115,9 @@ public class DownloadDialog extends Dialog implements ProgressListener{
                 return "";
             }
 
-            packMan = _context.getPackageManager();
-            packInfo = packMan.getPackageArchiveInfo(_strAPKPath, 0);
-            strRetVal = packInfo.packageName;
+            packMan     = _context.getPackageManager();
+            packInfo    = packMan.getPackageArchiveInfo(_strAPKPath, 0);
+            strRetVal   = packInfo.packageName;
             Loh.i("Installing package name: " + strRetVal);
         }catch(Exception e){
             Loh.e(e.toString() + "" );
