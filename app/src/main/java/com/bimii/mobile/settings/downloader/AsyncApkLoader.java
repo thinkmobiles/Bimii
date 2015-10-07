@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import com.bimii.mobile.api.ApiConstants;
 import com.bimii.mobile.api.ApiHelper;
 import com.bimii.mobile.api.models.based.Game;
+import com.bimii.mobile.utils.Loh;
 import com.bimii.mobile.utils.SecureProvider;
 
 import java.io.File;
@@ -20,6 +21,7 @@ public class AsyncApkLoader extends AsyncTask<Game, Integer, File> {
 
     private Context mContext;
     private ProgressListener mProgressListener;
+    private String pathString = "";
 
     public AsyncApkLoader(Context context, ProgressListener progressListener) {
         this.mContext = context;
@@ -50,6 +52,7 @@ public class AsyncApkLoader extends AsyncTask<Game, Integer, File> {
 
             connection.disconnect();
 
+            pathString = saveImage(game.thumbnail_img_url, SecureProvider.getGameIconsDirectoryFile(mContext, game.thumbnail_img_url.substring(game.thumbnail_img_url.lastIndexOf("/") + 1, game.thumbnail_img_url.length())));
             return resultFile;
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,7 +64,7 @@ public class AsyncApkLoader extends AsyncTask<Game, Integer, File> {
     @Override
     protected void onPostExecute(File file) {
         super.onPostExecute(file);
-        mProgressListener.onResult(file);
+        mProgressListener.onResult(file, pathString);
     }
 
     private File saveApkIntoFile(final InputStream is, final long maxLength, final File file) throws IOException {
@@ -78,7 +81,27 @@ public class AsyncApkLoader extends AsyncTask<Game, Integer, File> {
 
         output.flush();
         is.close();
+        output.close();
         return file;
+    }
+
+    public static String saveImage(String imageUrl, File destinationFile) throws IOException {
+        Loh.d("Image file path: " + destinationFile.getPath());
+
+        URL url = new URL(imageUrl);
+        InputStream is = url.openStream();
+        OutputStream os = new FileOutputStream(destinationFile);
+
+        byte[] b = new byte[4 * 1024];
+        int length;
+
+        while ((length = is.read(b)) != -1) {
+            os.write(b, 0, length);
+        }
+
+        is.close();
+        os.close();
+        return destinationFile.getPath();
     }
 
     @Override

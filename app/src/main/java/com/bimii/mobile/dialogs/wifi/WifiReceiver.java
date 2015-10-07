@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiManager;
-import android.util.Log;
 
 import com.bimii.mobile.R;
 

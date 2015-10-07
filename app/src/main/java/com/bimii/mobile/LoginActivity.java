@@ -1,6 +1,5 @@
 package com.bimii.mobile;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,7 +22,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class LoginActivity extends Activity implements Callback<String>{
+public class LoginActivity extends BaseActivity implements Callback<String>{
 
     @Bind(R.id.etUsername_AL)
     protected EditText mInputUsername;
@@ -91,9 +90,6 @@ public class LoginActivity extends Activity implements Callback<String>{
     public void failure(RetrofitError error) {
         pdProgressView.dismiss();
         Loh.e("Error GET_TOKEN: " + error.getMessage());
-
-        // TODO mock
-        openSettingsScreen();
     }
 
     private void openSettingsScreen(){

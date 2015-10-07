@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.provider.Settings.Secure;
-
-import com.bimii.mobile.cache.CacheConstants;
-import com.bimii.mobile.cache.CacheHelper;
+import android.view.WindowManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +39,17 @@ public final class SecureProvider {
         return apkFile;
     }
 
+    public static File getGameIconsDirectoryFile(final Context context, final String nameIcon) throws IOException {
+        final File moundSD = getMountAppsDirectoryFile(context);
+        if (moundSD == null) return null;
+        final File imgFile = new File(moundSD, nameIcon);
+
+        if (imgFile.exists())
+            imgFile.delete();
+
+        return imgFile;
+    }
+
 
     public static void setCurrentLauncher(Context context, boolean bimiiLauncher){
         final KeyguardManager keyguardManager   = (KeyguardManager) context.getSystemService(Activity.KEYGUARD_SERVICE);
@@ -54,6 +63,16 @@ public final class SecureProvider {
             KioskMode.off();
             lock.reenableKeyguard();
         }
+    }
+
+    public static void registerFlags(Activity activity){
+        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+    }
+
+    public static void unRegisterFlags(Activity activity){
+        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
     }
 
 }

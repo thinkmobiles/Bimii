@@ -1,12 +1,12 @@
 package com.bimii.mobile.games;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.bimii.mobile.BaseActivity;
 import com.bimii.mobile.LoginActivity;
 import com.bimii.mobile.R;
 import com.bimii.mobile.api.models.based.Game;
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 
-public class GameActivity extends Activity {
+public class GameActivity extends BaseActivity {
 
     @Bind(R.id.gvGames_AG)
     protected GridView gridViewGames;
@@ -56,6 +56,7 @@ public class GameActivity extends Activity {
 
     private void initGridGame(final List<Game> _games) {
         int columnCount = _games.size() < 3 ? _games.size() : 3;
+
         gridViewGames.setNumColumns(columnCount);
         gridViewGames.setAdapter(gamesAdapter = new GamesAdapter(this, _games));
     }

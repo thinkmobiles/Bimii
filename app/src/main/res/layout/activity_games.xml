@@ -47,6 +47,8 @@
             android:paddingTop="@dimen/tb_grid_padding"
             android:scrollbars="none"
             android:stretchMode="columnWidth"
+            android:listSelector="@android:color/transparent"
+            android:overScrollMode="never"
             android:verticalSpacing="@dimen/vh_grid_spacing" />
 
     </RelativeLayout>

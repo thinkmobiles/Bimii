@@ -4,6 +4,6 @@ import java.io.File;
 
 public interface ProgressListener {
     void transferred(int percent);
-    void onResult(File file);
+    void onResult(File file, String imagePath);
 
 }

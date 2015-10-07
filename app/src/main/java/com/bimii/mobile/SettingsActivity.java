@@ -1,6 +1,5 @@
 package com.bimii.mobile;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +35,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class SettingsActivity extends Activity implements Callback<List<Game>>, InstallGameEvent {
+public class SettingsActivity extends BaseActivity implements Callback<List<Game>>, InstallGameEvent {
 
     private ProgressDialog pdProgressView;
 
@@ -45,6 +44,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
     private GamesSettingsAdapter mGamesSettingsAdapter;
     private Game gameDownload = null;
     private String lastInstalledPackageName = "";
+    private String lastInstalledImagePath = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +138,7 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
                     Loh.i("COMPLETE INSTALLING - GAME WRITED INTO BASE !!!");
                     gameDownload.actionGame = ActionGame.DELETE;
                     gameDownload.packageName = lastInstalledPackageName;
+                    gameDownload.thumbnail_img_url = lastInstalledImagePath;
                     BaseHelperFactory.getHelper().updateGame(gameDownload);
                     mGamesSettingsAdapter.notifyDataSetChanged();
                 } catch (SQLException e) {
@@ -168,7 +169,8 @@ public class SettingsActivity extends Activity implements Callback<List<Game>>, 
     }
 
     @Override
-    public void onStartedInstallPackage(String packageName) {
+    public void onStartedInstallPackage(String packageName, String imagePath) {
         lastInstalledPackageName = packageName;
+        lastInstalledImagePath = imagePath;
     }
 }

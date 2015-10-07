@@ -7,9 +7,10 @@ import android.widget.TextView;
 
 import com.bimii.mobile.R;
 import com.bimii.mobile.api.models.based.Game;
-import com.bimii.mobile.custom.CropSquareTransformation;
 import com.bimii.mobile.utils.TextCropper;
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,17 +37,27 @@ public final class GameSettingsViewHolder {
     }
 
     public void updateGame(Context context, Game _game){
-        titleGame.setText(TextCropper.getNameIgnoreApk(_game.getFilename()));
-        versionGame.setText(_game.getVersion());
-        availableGame.setText(_game.getUnlock_status() ? "Yes" : "No");
-        actionGame.setText(_game.actionGame.name());
-        actionGame.setTag(_game.actionGame);
-        Picasso
-                .with(context)
-                .load(_game.thumbnail_img_url)
-                .placeholder(R.drawable.bg_night_circular)
-                .transform(new CropSquareTransformation())
-                .into(iconGame);
+        titleGame       .setText(TextCropper.getNameIgnoreApk(_game.getFilename()));
+        versionGame     .setText(_game.getVersion());
+        availableGame   .setText(_game.getUnlock_status() ? "Yes" : "No");
+        actionGame      .setText(_game.actionGame.name());
+        actionGame      .setTag(_game.actionGame);
+
+        File f = new File(_game.thumbnail_img_url);
+        if (f.exists())
+            Picasso
+                    .with(context)
+                    .load(f)
+                    .placeholder(R.drawable.bg_item_menu)
+                    .error(R.drawable.bg_item_menu)
+                    .into(iconGame);
+        else
+            Picasso
+                    .with(context)
+                    .load(_game.thumbnail_img_url)
+                    .placeholder(R.drawable.bg_item_menu)
+                    .error(R.drawable.bg_item_menu)
+                    .into(iconGame);
     }
 
 }

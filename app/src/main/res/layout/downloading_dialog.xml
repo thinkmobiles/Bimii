@@ -11,22 +11,18 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_downloading_game"
         android:gravity="center_horizontal"
-        android:minWidth="400dp"
+        android:minWidth="500dp"
         android:orientation="vertical"
         android:paddingBottom="20dp"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
         android:paddingTop="20dp">
 
-        <com.bimii.mobile.custom.CircleImageView
+        <ImageView
             android:id="@+id/ivGameIcon_DD"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/bg_item_menu"
-            android:padding="8dp"
-            app:border_color="@android:color/white"
-            app:border_width="2dp" />
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_item_menu"/>
 
         <TextView
             android:id="@+id/tvNameGameDownloading_DD"
@@ -46,7 +42,7 @@
                 android:id="@+id/pbProgressDownloadGame_DD"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="22dp"
+                android:layout_height="35dp"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="5dp"
                 android:indeterminateOnly="false"
@@ -79,6 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="23sp"
             android:background="@drawable/selector_bimii_btn_bg"
             android:text="@string/cancel"
             android:textColor="@drawable/selector_bimii_btn_text" />
