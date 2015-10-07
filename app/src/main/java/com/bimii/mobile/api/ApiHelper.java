@@ -2,8 +2,10 @@ package com.bimii.mobile.api;
 
 
 import com.bimii.mobile.api.models.Token;
+import com.squareup.okhttp.OkHttpClient;
 
 import retrofit.RestAdapter;
+import retrofit.client.OkClient;
 
 public final class ApiHelper {
 
@@ -18,6 +20,7 @@ public final class ApiHelper {
     private final RestAdapter mRestAdapter = new RestAdapter .Builder()
             .setEndpoint(ApiConstants.API_BASE_URL)
             .setLogLevel(RestAdapter.LogLevel.FULL)
+            .setClient(new OkClient(new OkHttpClient()))
             .build();
 
     private final BimiiApiService bas = mRestAdapter.create(BimiiApiService.class);
