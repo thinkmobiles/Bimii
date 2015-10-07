@@ -138,7 +138,7 @@ public class SettingsActivity extends BaseActivity implements Callback<List<Game
                     Loh.i("COMPLETE INSTALLING - GAME WRITED INTO BASE !!!");
                     gameDownload.actionGame = ActionGame.DELETE;
                     gameDownload.packageName = lastInstalledPackageName;
-                    gameDownload.thumbnail_img_url = lastInstalledImagePath;
+                    gameDownload.thumbnail_img_file_url = lastInstalledImagePath;
                     BaseHelperFactory.getHelper().updateGame(gameDownload);
                     mGamesSettingsAdapter.notifyDataSetChanged();
                 } catch (SQLException e) {
@@ -152,7 +152,7 @@ public class SettingsActivity extends BaseActivity implements Callback<List<Game
                 }
             }
         } else if (requestCode == DownloadDialog.REQUEST_UNINSTALL_CODE && gameDownload != null) {
-            if ((resultCode == RESULT_OK || resultCode == RESULT_CANCELED))
+            if ((resultCode == RESULT_OK || resultCode == RESULT_CANCELED) && !DownloadDialog.isContainsGameOnDevice(getApplicationContext(), gameDownload.packageName))
                 try {
                     Loh.i("COMPLETE DELETING - GAME DELETED FROM BASE !!!");
                     gameDownload.actionGame = ActionGame.DOWNLOAD;

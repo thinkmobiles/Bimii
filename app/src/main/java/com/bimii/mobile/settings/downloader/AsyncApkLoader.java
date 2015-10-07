@@ -8,6 +8,7 @@ import com.bimii.mobile.api.ApiHelper;
 import com.bimii.mobile.api.models.based.Game;
 import com.bimii.mobile.utils.Loh;
 import com.bimii.mobile.utils.SecureProvider;
+import com.bimii.mobile.utils.TextCropper;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -52,7 +53,12 @@ public class AsyncApkLoader extends AsyncTask<Game, Integer, File> {
 
             connection.disconnect();
 
-            pathString = saveImage(game.thumbnail_img_url, SecureProvider.getGameIconsDirectoryFile(mContext, game.thumbnail_img_url.substring(game.thumbnail_img_url.lastIndexOf("/") + 1, game.thumbnail_img_url.length())));
+            pathString = saveImage(
+                    game.thumbnail_img_url,
+                    SecureProvider.getGameIconsDirectoryFile(
+                            mContext,
+                            TextCropper.getNameIgnoreApk(game.getFilename())).getPath() + ".png");
+
             return resultFile;
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,12 +91,12 @@ public class AsyncApkLoader extends AsyncTask<Game, Integer, File> {
         return file;
     }
 
-    public static String saveImage(String imageUrl, File destinationFile) throws IOException {
-        Loh.d("Image file path: " + destinationFile.getPath());
+    private String saveImage(String imageUrl, String destinationFilePath) throws IOException {
+        Loh.d("Image file path: " + destinationFilePath);
 
         URL url = new URL(imageUrl);
         InputStream is = url.openStream();
-        OutputStream os = new FileOutputStream(destinationFile);
+        OutputStream os = new FileOutputStream(destinationFilePath);
 
         byte[] b = new byte[4 * 1024];
         int length;
@@ -101,7 +107,7 @@ public class AsyncApkLoader extends AsyncTask<Game, Integer, File> {
 
         is.close();
         os.close();
-        return destinationFile.getPath();
+        return destinationFilePath;
     }
 
     @Override

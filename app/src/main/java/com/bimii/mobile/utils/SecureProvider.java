@@ -40,14 +40,7 @@ public final class SecureProvider {
     }
 
     public static File getGameIconsDirectoryFile(final Context context, final String nameIcon) throws IOException {
-        final File moundSD = getMountAppsDirectoryFile(context);
-        if (moundSD == null) return null;
-        final File imgFile = new File(moundSD, nameIcon);
-
-        if (imgFile.exists())
-            imgFile.delete();
-
-        return imgFile;
+        return getGameDirectoryFile(context, nameIcon, false);
     }
 
 

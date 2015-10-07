@@ -43,21 +43,12 @@ public final class GameSettingsViewHolder {
         actionGame      .setText(_game.actionGame.name());
         actionGame      .setTag(_game.actionGame);
 
-        File f = new File(_game.thumbnail_img_url);
-        if (f.exists())
-            Picasso
-                    .with(context)
-                    .load(f)
-                    .placeholder(R.drawable.bg_item_menu)
-                    .error(R.drawable.bg_item_menu)
-                    .into(iconGame);
-        else
-            Picasso
-                    .with(context)
-                    .load(_game.thumbnail_img_url)
-                    .placeholder(R.drawable.bg_item_menu)
-                    .error(R.drawable.bg_item_menu)
-                    .into(iconGame);
+        Picasso
+                .with(context)
+                .load(_game.thumbnail_img_url)
+                .placeholder(R.drawable.bg_item_menu)
+                .error(R.drawable.bg_item_menu)
+                .into(iconGame);
     }
 
 }

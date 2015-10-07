@@ -26,6 +26,9 @@ public final class Game {
     @DatabaseField(dataType = DataType.STRING)
     public String thumbnail_img_url;
 
+    @DatabaseField(dataType = DataType.STRING)
+    public String thumbnail_img_file_url;
+
     @DatabaseField(dataType = DataType.BOOLEAN)
     public boolean unlock_status;
 
@@ -111,4 +114,6 @@ public final class Game {
     public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
+
+
 }

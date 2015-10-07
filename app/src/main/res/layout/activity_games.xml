@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_gradient">
 
     <RelativeLayout
@@ -40,8 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             style="@style/SmallTextStyle"
-            android:textSize="35sp"
+            android:textSize="32sp"
             android:textStyle="bold"
+            app:textStrokeWidth="1dp"
             android:text="@string/not_have_games"
             />
 

@@ -27,7 +27,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DownloadDialog extends Dialog implements ProgressListener{
+public class DownloadDialog extends Dialog implements ProgressListener {
 
     public static final int REQUEST_INSTALL_CODE = 27819;
     public static final int REQUEST_UNINSTALL_CODE = 27821;
@@ -65,14 +65,22 @@ public class DownloadDialog extends Dialog implements ProgressListener{
         ButterKnife.bind(this);
 
         nameGame.setText(TextCropper.getNameIgnoreApk(mGame.getFilename()));
-        Picasso.with(mSettingsActivity).load(mGame.getThumbnail_img_url()).placeholder(R.drawable.bg_item_menu).into(imageGame);
+        loadPhoto();
 
         loader = new AsyncApkLoader(mSettingsActivity, this);
         loader.execute(mGame);
     }
 
+    private void loadPhoto() {
+        Picasso
+                .with(mSettingsActivity)
+                .load(mGame.thumbnail_img_url)
+                .placeholder(R.drawable.bg_item_menu)
+                .into(imageGame);
+    }
+
     @OnClick(R.id.btnCancel_DD)
-    protected void cancelDownload(){
+    protected void cancelDownload() {
         loader.cancel(true);
         dismiss();
     }
@@ -90,7 +98,7 @@ public class DownloadDialog extends Dialog implements ProgressListener{
         dismiss();
     }
 
-    public void installApplication(final File file, final String imageFilePath){
+    public void installApplication(final File file, final String imageFilePath) {
         String packageName = getPackageNameByAPK(file.getAbsolutePath(), getContext());
         if (!TextUtils.isEmpty(packageName)) {
             ige.onStartedInstallPackage(packageName, imageFilePath);
@@ -100,33 +108,33 @@ public class DownloadDialog extends Dialog implements ProgressListener{
         }
     }
 
-    private String getPackageNameByAPK(String _strAPKPath, Context _context){
+    private String getPackageNameByAPK(String _strAPKPath, Context _context) {
         String strRetVal = "";
         PackageManager packMan = null;
         PackageInfo packInfo = null;
-        try{
+        try {
 
-            if(_strAPKPath == null) return "";
+            if (_strAPKPath == null) return "";
 
             Loh.d("getPackageNameByAPK(): " + _strAPKPath);
-            if(_context == null) {
+            if (_context == null) {
                 Loh.e("Context is null");
                 return "";
             }
 
-            packMan     = _context.getPackageManager();
-            packInfo    = packMan.getPackageArchiveInfo(_strAPKPath, 0);
-            strRetVal   = packInfo.packageName;
+            packMan = _context.getPackageManager();
+            packInfo = packMan.getPackageArchiveInfo(_strAPKPath, 0);
+            strRetVal = packInfo.packageName;
             Loh.i("Installing package name: " + strRetVal);
-        }catch(Exception e){
-            Loh.e(e.toString() + "" );
+        } catch (Exception e) {
+            Loh.e(e.toString() + "");
         }
 
         Loh.d("RetVal: " + strRetVal);
         return strRetVal;
     }
 
-    public static boolean isContainsGameOnDevice(Context context, String packageName){
+    public static boolean isContainsGameOnDevice(Context context, String packageName) {
         try {
             context.getPackageManager().getPackageInfo(packageName, PackageManager.GET_META_DATA);
             return true;
@@ -136,12 +144,12 @@ public class DownloadDialog extends Dialog implements ProgressListener{
         }
     }
 
-    public static void uninstallApplication(SettingsActivity sa, String packageName){
+    public static void uninstallApplication(SettingsActivity sa, String packageName) {
         Intent intent = new Intent(Intent.ACTION_DELETE, Uri.parse("package:" + packageName));
         sa.startActivityForResult(intent, REQUEST_UNINSTALL_CODE);
     }
 
-    public interface InstallGameEvent{
+    public interface InstallGameEvent {
         void onStartedInstallPackage(String packageName, String imagePath);
     }
 }

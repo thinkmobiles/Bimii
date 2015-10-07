@@ -29,11 +29,18 @@ public final class GameViewHolder{
 
     public void updateGame(Context context, Game _game){
         titleGame.setText(TextCropper.getNameIgnoreApk(_game.filename));
-        File f = new File(_game.thumbnail_img_url);
+        File f = new File(_game.thumbnail_img_file_url);
         if (f.exists())
             Picasso
                     .with(context)
                     .load(f)
+                    .placeholder(R.drawable.bg_item_menu)
+                    .into(iconGame);
+        else
+        if (f.exists())
+            Picasso
+                    .with(context)
+                    .load(_game.thumbnail_img_url)
                     .placeholder(R.drawable.bg_item_menu)
                     .into(iconGame);
     }

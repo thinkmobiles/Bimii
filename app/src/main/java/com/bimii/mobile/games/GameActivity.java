@@ -40,8 +40,6 @@ public class GameActivity extends BaseActivity {
         setContentView(R.layout.activity_games);
 
         ButterKnife.bind(this);
-
-        FontHelper.init(getApplicationContext());
     }
 
     @Override
@@ -61,16 +59,15 @@ public class GameActivity extends BaseActivity {
     }
 
     private void initGridGame(final List<Game> _games) {
-        if (_games == null || _games.size() == 0)
+        if (_games.size() == 0)
             epmtyGames.setVisibility(View.VISIBLE);
-        else {
+        else
             epmtyGames.setVisibility(View.GONE);
 
-            int columnCount = _games.size() < 3 ? _games.size() : 3;
+        int columnCount = _games.size() < 3 ? _games.size() : 3;
 
-            gridViewGames.setNumColumns(columnCount);
-            gridViewGames.setAdapter(gamesAdapter = new GamesAdapter(this, _games));
-        }
+        gridViewGames.setNumColumns(columnCount);
+        gridViewGames.setAdapter(gamesAdapter = new GamesAdapter(this, _games));
     }
 
     private void loadGames() {
