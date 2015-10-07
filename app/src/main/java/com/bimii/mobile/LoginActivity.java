@@ -1,6 +1,5 @@
 package com.bimii.mobile;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,7 +22,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class LoginActivity extends Activity implements Callback<String>{
+public class LoginActivity extends BaseActivity implements Callback<String>{
 
     @Bind(R.id.etUsername_AL)
     protected EditText mInputUsername;

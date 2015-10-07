@@ -1,6 +1,5 @@
 package com.bimii.mobile;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +35,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class SettingsActivity extends Activity implements Callback<List<Game>>, InstallGameEvent {
+public class SettingsActivity extends BaseActivity implements Callback<List<Game>>, InstallGameEvent {
 
     private ProgressDialog pdProgressView;
 

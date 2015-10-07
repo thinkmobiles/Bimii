@@ -1,8 +1,6 @@
 package com.bimii.mobile.games;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
