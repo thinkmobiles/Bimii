@@ -9,4 +9,6 @@ public interface WifiUpdateCallback {
 
     void savePass(boolean _isSave);
 
+    void updateWifiStateWithoutRefresh(String _state, boolean _showProgress);
+
 }

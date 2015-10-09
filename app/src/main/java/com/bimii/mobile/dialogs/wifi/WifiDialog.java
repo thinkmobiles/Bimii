@@ -7,9 +7,11 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
+import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -126,10 +128,7 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
     protected boolean forgetWifi(View view) {
         final String ssid = ((TextView) view.findViewById(R.id.tvNetworkName_WLI)).getText().toString();
         final String state = ((TextView) view.findViewById(R.id.tvNetworkStatus_WLI)).getText().toString();
-//        if(mSharedPreferences.contains(ssid)) new ForgetWifiNetworkDialog(mCtx, this, ssid).show();
         if(state.equalsIgnoreCase(NetworkConstants.CONNECTED)) {
-//            mWifiManager.disconnect();
-//            mWifiListAdapter.notifyDataSetChanged();
             new ForgetWifiNetworkDialog(mCtx, this, ssid).show();
         }
         return true;
@@ -145,6 +144,9 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
 
     /*Connect to open wifi network*/
     private void connectToOpenNetwork(String _ssid) {
+        tvStatus_WD.setText("Connecting");
+        pbStatus_WD.setVisibility(View.VISIBLE);
+
         WifiConfiguration conf = new WifiConfiguration();
         conf.SSID = String.format("\"%s\"", _ssid);
         conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
@@ -155,6 +157,9 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
 
     /*Connect to locked wifi network*/
     public void connectToLockedNetwork(String _ssid, String _pass) {
+        tvStatus_WD.setText("Connecting");
+        pbStatus_WD.setVisibility(View.VISIBLE);
+
         WifiConfiguration wifiConfiguration     = new WifiConfiguration();
         wifiConfiguration.SSID                  = String.format("\"%s\"", _ssid);
         wifiConfiguration.preSharedKey          = String.format("\"%s\"", _pass);
@@ -187,7 +192,16 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
         tvStatus_WD.setText(_state);
         if(_showProgress) pbStatus_WD.setVisibility(View.VISIBLE);
         else pbStatus_WD.setVisibility(View.INVISIBLE);
+
         mWifiListAdapter.update(mWifiManager.getScanResults());
+    }
+
+    @Override
+    public void updateWifiStateWithoutRefresh(String _state, boolean _showProgress) {
+        tvStatus_WD.setText(_state);
+        if(_showProgress) pbStatus_WD.setVisibility(View.VISIBLE);
+        else pbStatus_WD.setVisibility(View.INVISIBLE);
+        mWifiListAdapter.notifyDataSetChanged();
     }
 
     @Override
