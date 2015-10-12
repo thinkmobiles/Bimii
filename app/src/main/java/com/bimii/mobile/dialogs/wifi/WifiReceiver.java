@@ -3,11 +3,14 @@ package com.bimii.mobile.dialogs.wifi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
 import com.bimii.mobile.R;
+import com.bimii.mobile.dialogs.NetworkConstants;
 
 /**
  * Created by WORK on 14.09.2015.
@@ -22,11 +25,19 @@ public class WifiReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context _context, Intent _intent) {
+        ConnectivityManager connManager = (ConnectivityManager) _context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo.DetailedState current = mWifi.getDetailedState();
+
         switch (_intent.getAction()) {
             case WifiManager.WIFI_STATE_CHANGED_ACTION:         // begin scanning
                 mCallback.updateWifiStateWithoutRefresh(_context.getResources().getString(R.string.wifi_status_scanning), true);
                 break;
             case WifiManager.SCAN_RESULTS_AVAILABLE_ACTION:     // update list view with scan values
+                if(current == NetworkInfo.DetailedState.AUTHENTICATING) return;
+                if(current == NetworkInfo.DetailedState.CONNECTING) return;
+                if(current == NetworkInfo.DetailedState.OBTAINING_IPADDR) return;
+
                 if(!_intent.getBooleanExtra(WifiManager.EXTRA_RESULTS_UPDATED, false)) { // !
                     mCallback.updateWifiState(_context.getResources().getString(R.string.empty_string), false);
                 }

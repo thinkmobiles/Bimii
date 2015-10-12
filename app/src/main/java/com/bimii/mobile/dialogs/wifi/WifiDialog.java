@@ -166,7 +166,6 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
 
         int netId = mWifiManager.addNetwork(wifiConfiguration);
 
-        mWifiManager.disconnect();
         mWifiManager.enableNetwork(netId, true);
         mWifiManager.reconnect();
     }
