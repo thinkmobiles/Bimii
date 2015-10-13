@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
 
 /**
  * Created by WORK on 14.09.2015.
@@ -83,15 +85,18 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
     }
 
     /*Update adapter with new data*/
-    public void update(List<ScanResult> _list) {
+    public void update(final List<ScanResult> _list) {
         Collections.sort(_list, new Comparator<ScanResult>() {  // sort by sygnal level
             @Override
             public int compare(ScanResult scanResult, ScanResult t1) {
                 return WifiManager.calculateSignalLevel(t1.level, 4) - WifiManager.calculateSignalLevel(scanResult.level, 4);
             }
         });
+
         mNetworksList.clear();
         mNetworksList.addAll(_list);
+
+        for(ScanResult sr : mNetworksList) Log.d("myLogs", sr.toString());
         notifyDataSetChanged();
     }
 

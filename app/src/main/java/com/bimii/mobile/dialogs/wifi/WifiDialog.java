@@ -7,14 +7,11 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
-import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -94,7 +91,6 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
                 iFilter     .addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
                 iFilter     .addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);
                 iFilter     .addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
-                iFilter     .addAction(WifiManager.NETWORK_IDS_CHANGED_ACTION);
             mCtx                .registerReceiver(mWifiReceiver, iFilter);
             mWifiManager        .setWifiEnabled(true);
             mWifiManager        .startScan();
@@ -144,20 +140,21 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
 
     /*Connect to open wifi network*/
     private void connectToOpenNetwork(String _ssid) {
-        tvStatus_WD.setText("Connecting");
+        tvStatus_WD.setText("Connecting..");
         pbStatus_WD.setVisibility(View.VISIBLE);
 
         WifiConfiguration conf = new WifiConfiguration();
         conf.SSID = String.format("\"%s\"", _ssid);
         conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+
         int id = mWifiManager.addNetwork(conf);
         mWifiManager.enableNetwork(id, true);
-        mWifiManager.reconnect();
+        mWifiManager.setWifiEnabled(true);
     }
 
     /*Connect to locked wifi network*/
     public void connectToLockedNetwork(String _ssid, String _pass) {
-        tvStatus_WD.setText("Connecting");
+        tvStatus_WD.setText("Connecting..");
         pbStatus_WD.setVisibility(View.VISIBLE);
 
         WifiConfiguration wifiConfiguration     = new WifiConfiguration();
@@ -167,7 +164,7 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
         int netId = mWifiManager.addNetwork(wifiConfiguration);
 
         mWifiManager.enableNetwork(netId, true);
-        mWifiManager.reconnect();
+        mWifiManager.setWifiEnabled(true);
     }
 
     /*Return current wifi network name*/
