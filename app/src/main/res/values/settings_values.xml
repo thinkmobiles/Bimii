@@ -11,8 +11,6 @@
     <!--WIFI Strings-->
     <string name="wifi_label">Wi - Fi</string>
     <string name="wifi_status_turn_on">Turn on Wi-Fi</string>
-    <string name="wifi_status_scanning">Scanning...</string>
-    <string name="wifi_status_connecting">Connecting...</string>
     <string name="wifi_status_password_denied">Password denied</string>
     <string name="wifi_pass_dialog_enter_password">Enter password</string>
     <string name="wifi_pass_dialog_et_hint">Password</string>
@@ -22,6 +20,11 @@
     <string name="wifi_forget_network_dialog_btn_ok_text">OK</string>
     <string name="wifi_forget_network_dialog_btn_cancel_text">Cancel</string>
     <string name="wifi_forget_network_dialog_msg_format">Forget network %s ?</string>
+    <string name="wifi_status_scanning">Scanning...</string>
+    <string name="wifi_status_connecting">Connecting..</string>
+    <string name="wifi_status_associating">Associating..</string>
+    <string name="wifi_status_enabling">Enabling Wi-Fi..</string>
+    <string name="wifi_status_disabling">Disabling Wi-Fi..</string>
 
     <!--BLUETOOTH Strings-->
     <string name="bt_label">Bluetooth</string>
@@ -69,8 +72,6 @@
     <dimen name="wifi_switch_dialog_image_close_margin_left">18dp</dimen>
     <dimen name="wifi_switch_dialog_image_close_margin_right">18dp</dimen>
     <dimen name="wifi_switch_dialog_launcher_image_margin_top">20dp</dimen>
-    <dimen name="wifi_switch_dialog_text_margin_top">20dp</dimen>
-    <dimen name="wifi_switch_dialog_text_stroke_width">3dp</dimen>
 
     <!--Custom drawable dimensions-->
     <dimen name="round_close_btn_stroke_width">2dp</dimen>

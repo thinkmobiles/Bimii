@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +41,6 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
         TextView    tvNetworkStatus_WLI;
         ImageView   ivSygnal_WLI;
         ImageView   ivLock_WLI;
-
-        String bssid;
     }
 
     @Override
@@ -73,7 +70,6 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
             holder.tvNetworkStatus_WLI     = (TextView)    _convertView.findViewById(R.id.tvNetworkStatus_WLI);
             holder.ivSygnal_WLI            = (ImageView)   _convertView.findViewById(R.id.ivSygnal_WLI);
             holder.ivLock_WLI              = (ImageView)   _convertView.findViewById(R.id.ivLock_WLI);
-            holder.bssid = currentNetwork.BSSID;
             _convertView.setTag(holder);
         } else {
             holder = (WifiViewHolder)_convertView.getTag();
@@ -84,6 +80,10 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
         if(getWifiState(currentNetwork).equalsIgnoreCase(NetworkConstants.CONNECTED)) {
             holder.tvNetworkStatus_WLI     .setVisibility(View.VISIBLE);
             holder.tvNetworkStatus_WLI     .setText(NetworkConstants.CONNECTED);
+            //Next code snipped moves connected network on top of list
+            ScanResult sr = mNetworksList.get(_position);
+            mNetworksList.remove(_position);
+            mNetworksList.add(0, sr);
         } else {
             holder.tvNetworkStatus_WLI     .setVisibility(View.GONE);
         }
@@ -116,8 +116,6 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
                 if(mNetworksList.get(i).SSID.equalsIgnoreCase(mNetworksList.get(k).SSID)) mNetworksList.remove(k);
             }
         }
-
-        for(ScanResult sr : mNetworksList) Log.d("myLogs", sr.toString());
 
         notifyDataSetChanged();
     }

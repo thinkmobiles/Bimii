@@ -12,7 +12,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -141,7 +140,7 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
 
     /*Connect to open wifi network*/
     private void connectToOpenNetwork(String _ssid) {
-        tvStatus_WD.setText("Connecting..");
+        tvStatus_WD.setText(mCtx.getResources().getString(R.string.wifi_status_connecting));
         pbStatus_WD.setVisibility(View.VISIBLE);
 
         WifiConfiguration conf = new WifiConfiguration();
@@ -155,7 +154,7 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
 
     /*Connect to locked wifi network*/
     public void connectToLockedNetwork(String _ssid, String _pass) {
-        tvStatus_WD.setText("Connecting..");
+        tvStatus_WD.setText(mCtx.getResources().getString(R.string.wifi_status_connecting));
         pbStatus_WD.setVisibility(View.VISIBLE);
 
         WifiConfiguration wifiConfiguration     = new WifiConfiguration();
@@ -166,7 +165,6 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
 
         int netId = mWifiManager.addNetwork(wifiConfiguration);
 
-        Log.d("myLogs", " >>>>>>>>>>>> TRYING TO CONNECT TO NETWORK ||| NETWORK ID == " + netId + " <<<<<<<<<<<<<<<<");
         mWifiManager.enableNetwork(netId, true);
         mWifiManager.setWifiEnabled(true);
     }
@@ -228,5 +226,11 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
         if(mSharedPreferences.contains(_ssid)) mSharedPreferences.edit().remove(_ssid).commit();
         mWifiManager.disconnect();
         mWifiListAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void enableSwitch(boolean isEnabled) {
+        if(isEnabled) swWifi_WD.setEnabled(true);
+        else swWifi_WD.setEnabled(false);
     }
 }

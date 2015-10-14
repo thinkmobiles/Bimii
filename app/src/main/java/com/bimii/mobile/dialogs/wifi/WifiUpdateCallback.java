@@ -13,4 +13,6 @@ public interface WifiUpdateCallback {
 
     void updateOnlyInfo(String _state, boolean _showProgress);
 
+    void enableSwitch(boolean isEnabled);
+
 }
