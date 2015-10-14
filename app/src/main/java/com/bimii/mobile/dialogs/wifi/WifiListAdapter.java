@@ -37,6 +37,15 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
         mNetworksList   = new ArrayList<>();
     }
 
+    static class WifiViewHolder {
+        TextView    tvNetworkName_WLI;
+        TextView    tvNetworkStatus_WLI;
+        ImageView   ivSygnal_WLI;
+        ImageView   ivLock_WLI;
+
+        String bssid;
+    }
+
     @Override
     public int getCount() {
         return mNetworksList.size();
@@ -54,27 +63,33 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
 
     @Override
     public View getView(int _position, View _convertView, ViewGroup _parent) {
-        if(_convertView == null)
-                    _convertView            = LayoutInflater.from(mCtx).inflate(R.layout.wifi_list_item, _parent, false);
         ScanResult  currentNetwork          = mNetworksList.get(_position);
 
-        TextView    tvNetworkName_WLI       = (TextView)    _convertView.findViewById(R.id.tvNetworkName_WLI);
-        TextView    tvNetworkStatus_WLI     = (TextView)    _convertView.findViewById(R.id.tvNetworkStatus_WLI);
-        ImageView   ivSygnal_WLI            = (ImageView)   _convertView.findViewById(R.id.ivSygnal_WLI);
-        ImageView   ivLock_WLI              = (ImageView)   _convertView.findViewById(R.id.ivLock_WLI);
-
-
-        tvNetworkName_WLI           .setText(getWifiName(currentNetwork));
-        ivLock_WLI                  .setImageDrawable(getWifiLock(currentNetwork));
-        if(getWifiState(currentNetwork).equalsIgnoreCase(NetworkConstants.CONNECTED)) {
-            tvNetworkStatus_WLI     .setVisibility(View.VISIBLE);
-            tvNetworkStatus_WLI     .setText(NetworkConstants.CONNECTED);
+        WifiViewHolder holder;
+        if(_convertView == null) {
+            _convertView            = LayoutInflater.from(mCtx).inflate(R.layout.wifi_list_item, _parent, false);
+            holder = new WifiViewHolder();
+            holder.tvNetworkName_WLI       = (TextView)    _convertView.findViewById(R.id.tvNetworkName_WLI);
+            holder.tvNetworkStatus_WLI     = (TextView)    _convertView.findViewById(R.id.tvNetworkStatus_WLI);
+            holder.ivSygnal_WLI            = (ImageView)   _convertView.findViewById(R.id.ivSygnal_WLI);
+            holder.ivLock_WLI              = (ImageView)   _convertView.findViewById(R.id.ivLock_WLI);
+            holder.bssid = currentNetwork.BSSID;
+            _convertView.setTag(holder);
         } else {
-            tvNetworkStatus_WLI     .setVisibility(View.GONE);
+            holder = (WifiViewHolder)_convertView.getTag();
         }
-        ivSygnal_WLI                .setImageDrawable(getWifiPower(currentNetwork));
-        tvNetworkName_WLI           .setTextColor(mCtx.getResources().getColor(R.color.app_button_text_color));
-        tvNetworkStatus_WLI         .setTextColor(mCtx.getResources().getColor(R.color.app_button_text_color_pressed));
+
+        holder.tvNetworkName_WLI           .setText(getWifiName(currentNetwork));
+        holder.ivLock_WLI                  .setImageDrawable(getWifiLock(currentNetwork));
+        if(getWifiState(currentNetwork).equalsIgnoreCase(NetworkConstants.CONNECTED)) {
+            holder.tvNetworkStatus_WLI     .setVisibility(View.VISIBLE);
+            holder.tvNetworkStatus_WLI     .setText(NetworkConstants.CONNECTED);
+        } else {
+            holder.tvNetworkStatus_WLI     .setVisibility(View.GONE);
+        }
+        holder.ivSygnal_WLI                .setImageDrawable(getWifiPower(currentNetwork));
+        holder.tvNetworkName_WLI           .setTextColor(mCtx.getResources().getColor(R.color.app_button_text_color));
+        holder.tvNetworkStatus_WLI         .setTextColor(mCtx.getResources().getColor(R.color.app_button_text_color_pressed));
 
         if(_position % 2 == 0) {    // list view zebra style :)
             _convertView.setBackgroundColor(mCtx.getResources().getColor(R.color.table_first_color));
@@ -96,7 +111,14 @@ public class WifiListAdapter extends ArrayAdapter<ScanResult> {
         mNetworksList.clear();
         mNetworksList.addAll(_list);
 
+        for(int i = 0; i < mNetworksList.size()-1; i++) {
+            for(int k = i+1; k < mNetworksList.size(); k++) {
+                if(mNetworksList.get(i).SSID.equalsIgnoreCase(mNetworksList.get(k).SSID)) mNetworksList.remove(k);
+            }
+        }
+
         for(ScanResult sr : mNetworksList) Log.d("myLogs", sr.toString());
+
         notifyDataSetChanged();
     }
 

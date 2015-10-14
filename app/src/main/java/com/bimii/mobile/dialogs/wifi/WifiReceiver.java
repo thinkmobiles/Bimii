@@ -36,7 +36,7 @@ public class WifiReceiver extends BroadcastReceiver {
         }
 
         Log.d("myLogs", "SP = " + _context.getSharedPreferences(NetworkConstants.SP_NAME,Context.MODE_PRIVATE).getAll().toString()
-                + "   STATE = " + current + " SS = " + ss);
+                + "   STATE = " + current + " SS = " + ss + " >>>>>> TOTAL: " + _intent.getAction());
 
         switch (_intent.getAction()) {
             case WifiManager.WIFI_STATE_CHANGED_ACTION:         // begin scanning
@@ -45,15 +45,6 @@ public class WifiReceiver extends BroadcastReceiver {
                 else mCallback.updateWifiStateWithoutRefresh(_context.getResources().getString(R.string.wifi_status_scanning), true);
                 break;
             case WifiManager.SCAN_RESULTS_AVAILABLE_ACTION:     // update list view with scan values
-                if(current == NetworkInfo.DetailedState.AUTHENTICATING) return;
-                if(current == NetworkInfo.DetailedState.CONNECTING) return;
-                if(current == NetworkInfo.DetailedState.OBTAINING_IPADDR) return;
-
-                if(ss == SupplicantState.AUTHENTICATING) return;
-                if(ss == SupplicantState.ASSOCIATED) return;
-
-                if(ss == SupplicantState.SCANNING || current == NetworkInfo.DetailedState.SCANNING) return;
-
                 if(!_intent.getBooleanExtra(WifiManager.EXTRA_RESULTS_UPDATED, false)) { // !
                     mCallback.updateWifiState(_context.getResources().getString(R.string.empty_string), false);
                 }
@@ -67,7 +58,7 @@ public class WifiReceiver extends BroadcastReceiver {
                 } else {
                     switch (supl_state) {
                         case ASSOCIATING:   // connecting
-                            mCallback.updateWifiStateWithoutRefresh("Associating..", true);
+                            mCallback.updateOnlyInfo("Associating..", true);
                             break;
                         case COMPLETED:     // connected | finish scanning
                             mCallback.updateWifiStateWithoutRefresh(_context.getResources().getString(R.string.empty_string), false);

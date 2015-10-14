@@ -11,4 +11,6 @@ public interface WifiUpdateCallback {
 
     void updateWifiStateWithoutRefresh(String _state, boolean _showProgress);
 
+    void updateOnlyInfo(String _state, boolean _showProgress);
+
 }

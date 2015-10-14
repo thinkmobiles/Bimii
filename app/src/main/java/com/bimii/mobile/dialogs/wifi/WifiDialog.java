@@ -12,6 +12,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -161,8 +162,11 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
         wifiConfiguration.SSID                  = String.format("\"%s\"", _ssid);
         wifiConfiguration.preSharedKey          = String.format("\"%s\"", _pass);
 
+        wifiConfiguration.status                = WifiConfiguration.Status.ENABLED;
+
         int netId = mWifiManager.addNetwork(wifiConfiguration);
 
+        Log.d("myLogs", " >>>>>>>>>>>> TRYING TO CONNECT TO NETWORK ||| NETWORK ID == " + netId + " <<<<<<<<<<<<<<<<");
         mWifiManager.enableNetwork(netId, true);
         mWifiManager.setWifiEnabled(true);
     }
@@ -198,6 +202,13 @@ public final class WifiDialog extends Dialog implements WifiUpdateCallback, Wifi
         if(_showProgress) pbStatus_WD.setVisibility(View.VISIBLE);
         else pbStatus_WD.setVisibility(View.INVISIBLE);
         mWifiListAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void updateOnlyInfo(String _state, boolean _showProgress) {
+        tvStatus_WD.setText(_state);
+        if(_showProgress) pbStatus_WD.setVisibility(View.VISIBLE);
+        else pbStatus_WD.setVisibility(View.INVISIBLE);
     }
 
     @Override
